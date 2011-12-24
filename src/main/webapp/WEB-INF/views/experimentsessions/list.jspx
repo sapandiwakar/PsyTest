@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ch_epfl_psytest_domain_ExperimentSession" items="${experimentsessions}" z="7wMJiAnJZIHXeoV8Eq/JQN7FQ8k=">
+        <table:table data="${experimentsessions}" id="l_ch_epfl_psytest_domain_ExperimentSession" path="/experimentsessions" z="3IGeeGYClKAlooqo84YNZ6jMeA8=">
+            <table:column id="c_ch_epfl_psytest_domain_ExperimentSession_description" property="description" z="pAg9tr5D5aBi33Uru909Og8+Els="/>
+            <table:column id="c_ch_epfl_psytest_domain_ExperimentSession_venue" property="venue" z="LPHf01KeqysANDikRyzL2qHpYPU="/>
+            <table:column date="true" dateTimePattern="${experimentSession_sessiondate_date_format}" id="c_ch_epfl_psytest_domain_ExperimentSession_sessionDate" property="sessionDate" z="eimtbgpEW5Rh66kezbZmRSpbMOw="/>
+            <table:column id="c_ch_epfl_psytest_domain_ExperimentSession_experiments" property="experiments" z="NfW5zQxLvMAK+ub48zxhikxTBUY="/>
+        </table:table>
+    </page:list>
+</div>

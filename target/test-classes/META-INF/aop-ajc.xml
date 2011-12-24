@@ -1,0 +1,9 @@
+<aspectj>
+<aspects>
+<aspect name="ch.epfl.psytest.domain.ExperimentSessionIntegrationTest_Roo_Configurable"/>
+<aspect name="ch.epfl.psytest.domain.ExperimentSessionDataOnDemand_Roo_DataOnDemand"/>
+<aspect name="ch.epfl.psytest.domain.ExperimentSessionDataOnDemand_Roo_Configurable"/>
+<aspect name="ch.epfl.psytest.domain.ExperimentSessionIntegrationTest_Roo_IntegrationTest"/>
+</aspects>
+</aspectj>
+

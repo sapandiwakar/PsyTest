@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_slide" z="pz9wD66zw/A9mgGNK4eAqOZFIXE=">
+            <menu:item id="i_slide_new" messageCode="global_menu_new" url="/slides?form" z="PjOyJtPw/hl0VFxgB3zcKcY1CG0="/>
+            <menu:item id="i_slide_list" messageCode="global_menu_list" url="/slides?page=1&amp;size=${empty param.size ? 10 : param.size}" z="99DFdckHGCo19IAr9wgz3ZrLFBU="/>
+        </menu:category>
+        <menu:category id="c_question" z="SR0L0iZw9fVnYZY0B/dk7XBq6eQ=">
+            <menu:item id="i_question_new" messageCode="global_menu_new" url="/questions?form" z="7Bx54/bA+53IAlm/YYWnirDy13E="/>
+            <menu:item id="i_question_list" messageCode="global_menu_list" url="/questions?page=1&amp;size=${empty param.size ? 10 : param.size}" z="xkHgyP5wW2F64BsTqMA7Yb0CdHY="/>
+        </menu:category>
+        <menu:category id="c_story" z="1UGvbJGUiz986fvGzB5Z2nupICg=">
+            <menu:item id="i_story_new" messageCode="global_menu_new" url="/storys?form" z="qkvMDXib3Vrs2SJbRPfNT12KCtA="/>
+            <menu:item id="i_story_list" messageCode="global_menu_list" url="/storys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="b6IFNH3yY7mLSAuQzAkXIztQVVs="/>
+        </menu:category>
+        <menu:category id="c_experiment" z="W5OakP5QbaEqEHbKqCeTcck19zg=">
+            <menu:item id="i_experiment_new" messageCode="global_menu_new" url="/experiments?form" z="EVZT/gaNGpJpHt/Gjzy7RqeROmw="/>
+            <menu:item id="i_experiment_list" messageCode="global_menu_list" url="/experiments?page=1&amp;size=${empty param.size ? 10 : param.size}" z="x3HHZQOwFIYuEEtmv/C3xfJRZo8="/>
+        </menu:category>
+        <menu:category id="c_response" z="/EtV5iwRtvniQ1cANvb3cis+7fo=">
+            <menu:item id="i_response_new" messageCode="global_menu_new" url="/responses?form" z="1imwXpR33jTyqphLwLHDEP32iIo="/>
+            <menu:item id="i_response_list" messageCode="global_menu_list" url="/responses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="OcF5x3LAKfi1RTzZeNuQ7LBvBGM="/>
+        </menu:category>
+        <menu:category id="c_experimentsession" z="H7XGSr/TDN7Ao8Bf8XPgCK18ugg=">
+            <menu:item id="i_experimentsession_new" messageCode="global_menu_new" url="/experimentsessions?form" z="Hy8/MyIV+jPE4dU8r9V/Q5HLpLY="/>
+            <menu:item id="i_experimentsession_list" messageCode="global_menu_list" url="/experimentsessions?page=1&amp;size=${empty param.size ? 10 : param.size}" z="PLRZ9beQnO1JD6awctfm1z1i1O0="/>
+        </menu:category>
+    </menu:menu>
+</div>

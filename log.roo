@@ -1,0 +1,39 @@
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-12-24 20:08:38
+project --topLevelPackage ch.epfl.psytest --projectName PsyTest --java 6
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-12-24 20:08:39
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-12-24 20:10:23
+hint
+persistence setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
+hint
+entity --class ~.domain.Slide 
+field string --fieldName imageUrl --notNull
+field string --fieldName description
+entity --class ~.domain.Question
+field string --fieldName statement --notNull 
+field set --fieldName choices --type ~.domain.Slide
+entity --class ~.domain.Story
+field set --fieldName slides --type ~.domain.Slide
+field reference --fieldName question --type ~.domain.Question
+entity --class ~.domain.Experiment
+field set --fieldName stories --type ~.domain.Story
+field number --fieldName subjectAge --type java.lang.Integer
+field string --fieldName subjectName
+entity --class ~.domain.Response
+field reference --fieldName question --type ~.domain.Question
+field reference --fieldName answer --type ~.domain.Slide
+// [failed] field string --fieldName order
+field reference --fieldName experiment --type ~.domain.Experiment
+// [failed] entity --class ~.domain.Session
+// [failed] entity --class ~.domain.TestSession
+entity --class ~.domain.ExperimentSession
+field string --fieldName description
+field string --fieldName venue
+// [failed] field date --fieldName date  --type java.util.Date
+field date --fieldName sessionDate  --type java.util.Date
+// [failed] field set --fieldName experiments --type java.util.Experiment
+field set --fieldName experiments --type ~.domain.Experiment
+test integration
+// [failed] perform tests
+web mvc setup
+web mvc all --package ~.web
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-12-24 21:38:02

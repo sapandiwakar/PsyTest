@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ch_epfl_psytest_domain_Experiment" modelAttribute="experiment" path="/experiments" versionField="Version" z="uAN0EuRFLOZ5n7AgBAKRy4vTN9o=">
+        <field:select field="stories" id="c_ch_epfl_psytest_domain_Experiment_stories" itemValue="id" items="${storys}" multiple="true" path="/storys" z="dWpQEI1rPFJACgl4NpfpkLKFLjg="/>
+        <field:input field="subjectAge" id="c_ch_epfl_psytest_domain_Experiment_subjectAge" validationMessageCode="field_invalid_integer" z="Kqn4dlG4KCZ+1lcOJq+IJH0vLNM="/>
+        <field:input field="subjectName" id="c_ch_epfl_psytest_domain_Experiment_subjectName" z="2Ab0JHu3INE0QkbVhMxph/HBBew="/>
+    </form:update>
+</div>

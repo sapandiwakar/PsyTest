@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ch_epfl_psytest_domain_Response" items="${responses}" z="lgsfB2RFvZlcSahOP0ByBoAiAcQ=">
+        <table:table data="${responses}" id="l_ch_epfl_psytest_domain_Response" path="/responses" z="zir5irNORziHEV6Ax31NjfHKIBE=">
+            <table:column id="c_ch_epfl_psytest_domain_Response_question" property="question" z="SQudQQ43LVk+5Sz/aGlCfxqMZRA="/>
+            <table:column id="c_ch_epfl_psytest_domain_Response_answer" property="answer" z="kv4EkwJAAO8I6CyOLNtOyLlmJ3M="/>
+            <table:column id="c_ch_epfl_psytest_domain_Response_experiment" property="experiment" z="IWLg7qqfP1eGYTtdDLsCjGeAPYA="/>
+        </table:table>
+    </page:list>
+</div>
