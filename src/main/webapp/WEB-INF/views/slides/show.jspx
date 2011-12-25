@@ -3,7 +3,6 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_ch_epfl_psytest_domain_Slide" object="${slide}" path="/slides" z="9vgz4SXk4S+RYuw2armpE0v3cmY=">
-        <field:display field="imageUrl" id="s_ch_epfl_psytest_domain_Slide_imageUrl" object="${slide}" z="FQWLujGoTkW9MmFch3+O3tESMgg="/>
         <field:display field="description" id="s_ch_epfl_psytest_domain_Slide_description" object="${slide}" z="PwKp4Mfxh+lgHfi7aJ+DtSDVALE="/>
     </page:show>
 </div>

@@ -8,7 +8,7 @@
         <put-attribute name="body" value="/WEB-INF/views/slides/show.jspx"/>
     </definition>
 <definition extends="default" name="slides/create">
-        <put-attribute name="body" value="/WEB-INF/views/slides/create.jspx"/>
+        <put-attribute name="body" value="/WEB-INF/views/slides/create.jsp"/>
     </definition>
 <definition extends="default" name="slides/update">
         <put-attribute name="body" value="/WEB-INF/views/slides/update.jspx"/>
