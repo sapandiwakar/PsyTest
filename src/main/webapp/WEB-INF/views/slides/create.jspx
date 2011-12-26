@@ -3,8 +3,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_ch_epfl_psytest_domain_Slide" modelAttribute="slide" path="/slides" render="${empty dependencies}" z="GRm6VqoMl745IkwsunQfNTw6gr0=">
-        <field:input field="imageUrl" id="c_ch_epfl_psytest_domain_Slide_imageUrl" required="true" z="evdWxPTsN7CNvtjV2rKVrvNDBLw="/>
+        <field:input field="file" id="c_ch_epfl_psytest_domain_Slide_file" z="rBWG+KCjZT840Dna4aOLnBybnAM="/>
         <field:input field="description" id="c_ch_epfl_psytest_domain_Slide_description" z="Iv87jxNXxVvTu3mi7mJUpCX4Czo="/>
+        <field:input field="fileName" id="c_ch_epfl_psytest_domain_Slide_fileName" z="i5nI07n8XUsEmj1Ui9rlsy/dIrs="/>
+        <field:input field="size" id="c_ch_epfl_psytest_domain_Slide_size" z="bAQKNpbqHIpCo7idCQGGsUtdCCg="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ch_epfl_psytest_domain_Slide" render="${not empty dependencies}" z="zVIjl4MxeXfTHRNDZD6Tkerl/U0="/>
 </div>

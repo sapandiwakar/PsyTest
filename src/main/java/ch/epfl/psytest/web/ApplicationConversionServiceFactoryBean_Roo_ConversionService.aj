@@ -48,7 +48,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     
     static class ch.epfl.psytest.web.ApplicationConversionServiceFactoryBean.SlideConverter implements Converter<Slide, String> {
         public String convert(Slide slide) {
-            return new StringBuilder().append(slide.getImageUrl()).append(" ").append(slide.getDescription()).toString();
+            return new StringBuilder().append(slide.getFile()).append(" ").append(slide.getDescription()).append(" ").append(slide.getFileName()).append(" ").append(slide.getSize()).toString();
         }
         
     }
