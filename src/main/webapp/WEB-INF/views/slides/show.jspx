@@ -5,7 +5,7 @@
     <page:show id="ps_ch_epfl_psytest_domain_Slide" object="${slide}" path="/slides" z="9vgz4SXk4S+RYuw2armpE0v3cmY=">
         <field:display field="description" id="s_ch_epfl_psytest_domain_Slide_description" object="${slide}" z="PwKp4Mfxh+lgHfi7aJ+DtSDVALE="/>
         <field:display field="file" id="s_ch_epfl_psytest_domain_Slide_file" object="${slide}" z="oN9db6rinRi+oyq1730l/8k/RVU="/>
-        <field:display field="fileName" id="s_ch_epfl_psytest_domain_Slide_fileName" object="${slide}" z="l1tN0+iKU9Bd0Kx7nUSNNXy3tIg="/>
         <field:display field="size" id="s_ch_epfl_psytest_domain_Slide_size" object="${slide}" z="Qh5hZ5s60Nz5h+VO2eyqcCPuXmc="/>
+        <field:display field="fileName" id="s_ch_epfl_psytest_domain_Slide_fileName" object="${slide}" z="l1tN0+iKU9Bd0Kx7nUSNNXy3tIg="/>
     </page:show>
 </div>

@@ -33,29 +33,30 @@ public class Slide {
 		return file;
 	}
 
-	// save file to disk ,save filename , file size to database
+	// save file to disk ,save filename, file size to database
 	public void setFile(CommonsMultipartFile file) {
 		this.file = file;
-		this.fileName = file.getOriginalFilename();
+		String tempFileName = file.getOriginalFilename();
 		this.size = file.getSize();
-		System.out.println("this.fileName: " + this.fileName + " ,  "
-				+ file.getClass().getName());
+//		System.out.println("this.fileName: " + this.fileName + " ,  "
+//				+ file.getClass().getName());
 
-		int dotPos = this.fileName.lastIndexOf(".");
-		String extension = this.fileName.substring(dotPos + 1);
+		int dotPos = tempFileName.lastIndexOf(".");
+		String extension = tempFileName.substring(dotPos + 1);
+		this.fileName = new Date().getTime() + "." + extension; 
 
-		File outputFile = new File(pathToSave + +new Date().getTime() + "." + extension);
+		File outputFile = new File(pathToSave + fileName);
 		if (outputFile == null || !outputFile.exists()) {
 			new File(pathToSave).mkdirs();
 		}
 		
-		System.out.println(outputFile.getPath());
-		System.out.println(outputFile.getAbsolutePath());
+//		System.out.println(outputFile.getPath());
+//		System.out.println(outputFile.getAbsolutePath());
 
 		try {
 			InputStream in = file.getInputStream();
 			FileOutputStream f = new FileOutputStream(pathToSave
-					+ new Date().getTime() + "." + extension);
+					+ fileName);
 
 			int ch = 0;
 			while ((ch = in.read()) != -1) {

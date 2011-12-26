@@ -6,8 +6,8 @@
         <table:table data="${slides}" id="l_ch_epfl_psytest_domain_Slide" path="/slides" z="whgpGtIrVI2eCnLJ901MIw2Pkq4=">
             <table:column id="c_ch_epfl_psytest_domain_Slide_description" property="description" z="tl5PnJsa98N6i7NiuA5XgKrG9Xs="/>
             <table:column id="c_ch_epfl_psytest_domain_Slide_file" property="file" z="kcTYb2fMj9aFsNqoJ7VA6TrIcv4="/>
-            <table:column id="c_ch_epfl_psytest_domain_Slide_fileName" property="fileName" z="sNLMh87yLCZT49wRZxSDCjtPfZQ="/>
             <table:column id="c_ch_epfl_psytest_domain_Slide_size" property="size" z="JJl0dpy2wGgC20514tMtMT/PjSY="/>
+            <table:column id="c_ch_epfl_psytest_domain_Slide_fileName" property="fileName" z="sNLMh87yLCZT49wRZxSDCjtPfZQ="/>
         </table:table>
     </page:list>
 </div>

@@ -5,7 +5,7 @@
     <form:update id="fu_ch_epfl_psytest_domain_Slide" modelAttribute="slide" path="/slides" versionField="Version" z="CCYYFCeA7/RdRxbfK8wu9sHYPS0=">
         <field:input field="description" id="c_ch_epfl_psytest_domain_Slide_description" z="Iv87jxNXxVvTu3mi7mJUpCX4Czo="/>
         <field:input field="file" id="c_ch_epfl_psytest_domain_Slide_file" z="rBWG+KCjZT840Dna4aOLnBybnAM="/>
-        <field:input field="fileName" id="c_ch_epfl_psytest_domain_Slide_fileName" z="i5nI07n8XUsEmj1Ui9rlsy/dIrs="/>
         <field:input field="size" id="c_ch_epfl_psytest_domain_Slide_size" z="bAQKNpbqHIpCo7idCQGGsUtdCCg="/>
+        <field:input field="fileName" id="c_ch_epfl_psytest_domain_Slide_fileName" z="i5nI07n8XUsEmj1Ui9rlsy/dIrs="/>
     </form:update>
 </div>
