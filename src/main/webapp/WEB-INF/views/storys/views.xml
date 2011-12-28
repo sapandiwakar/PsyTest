@@ -5,7 +5,11 @@
         <put-attribute name="body" value="/WEB-INF/views/storys/list.jspx"/>
     </definition>
 <definition extends="default" name="storys/show">
-        <put-attribute name="body" value="/WEB-INF/views/storys/show.jspx"/>
+        <put-attribute name="body" value="/WEB-INF/views/storys/show.jsp"/>
+    </definition>
+    
+ <definition extends="default" name="storys/showjsp">
+		<put-attribute name="body" value="/WEB-INF/views/storys/show.jsp"/>
     </definition>
 <definition extends="default" name="storys/create">
         <put-attribute name="body" value="/WEB-INF/views/storys/create.jspx"/>
