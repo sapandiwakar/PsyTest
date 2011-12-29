@@ -5,5 +5,6 @@
     <page:show id="ps_ch_epfl_psytest_domain_Story" object="${story}" path="/storys" z="qTRkAPK+rBUqDKfdcdmKfEUQNEY=">
         <field:display field="slides" id="s_ch_epfl_psytest_domain_Story_slides" object="${story}" z="ALLeDbe6hc+QPvLLqoNVo2qok0s="/>
         <field:display field="question" id="s_ch_epfl_psytest_domain_Story_question" object="${story}" z="kpT0Hy+oK5r74zoEd3Rh0OSSGrM="/>
+        <field:display field="title" id="s_ch_epfl_psytest_domain_Story_title" object="${story}" z="/+b2uFMI6og2eP5NJO/hhkIwpnI="/>
     </page:show>
 </div>

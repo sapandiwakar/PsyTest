@@ -12,6 +12,7 @@ privileged aspect Story_Roo_ToString {
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Question: ").append(getQuestion()).append(", ");
         sb.append("Slides: ").append(getSlides() == null ? "null" : getSlides().size()).append(", ");
+        sb.append("Title: ").append(getTitle()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }

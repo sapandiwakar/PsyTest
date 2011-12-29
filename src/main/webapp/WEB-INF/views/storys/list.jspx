@@ -6,6 +6,7 @@
         <table:table data="${storys}" id="l_ch_epfl_psytest_domain_Story" path="/storys" z="a2UwwfqeHaI8dYnoYdQJsINHzRg=">
             <table:column id="c_ch_epfl_psytest_domain_Story_slides" property="slides" z="h+9yPF/c/mwEbjQ2S0WYXYFIQKU="/>
             <table:column id="c_ch_epfl_psytest_domain_Story_question" property="question" z="AiS5t9PzX9IycaBYNfzJ3w5Mtlw="/>
+            <table:column id="c_ch_epfl_psytest_domain_Story_title" property="title" z="TwXPLVInFK6qvujlQRi4/Kq9zBA="/>
         </table:table>
     </page:list>
 </div>

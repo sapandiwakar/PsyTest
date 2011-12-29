@@ -5,6 +5,7 @@
     <form:create id="fc_ch_epfl_psytest_domain_Story" modelAttribute="story" path="/storys" render="${empty dependencies}" z="pEbuc145AXGIgoXqoFwBaeOvoPE=">
         <field:select field="slides" id="c_ch_epfl_psytest_domain_Story_slides" itemValue="id" items="${slides}" multiple="true" path="/slides" z="FJQJBsVXMwUZOYWkjMvFcG2TSC0="/>
         <field:select field="question" id="c_ch_epfl_psytest_domain_Story_question" itemValue="id" items="${questions}" path="/questions" z="HOC43d/OpOktZQgIA4chMrO1CaA="/>
+        <field:input field="title" id="c_ch_epfl_psytest_domain_Story_title" z="cnsDwylQ1g08tsufA/GNU/Fqd3Y="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ch_epfl_psytest_domain_Story" render="${not empty dependencies}" z="iA3A9lqsu2aNaeR3LSQCA5EO5Bg="/>
 </div>

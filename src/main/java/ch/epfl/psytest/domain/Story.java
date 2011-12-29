@@ -21,4 +21,6 @@ public class Story {
 
     @ManyToOne
     private Question question;
+
+    private String title;
 }

@@ -5,6 +5,7 @@ package ch.epfl.psytest.domain;
 
 import ch.epfl.psytest.domain.Question;
 import ch.epfl.psytest.domain.Slide;
+import java.lang.String;
 import java.util.Set;
 
 privileged aspect Story_Roo_JavaBean {
@@ -23,6 +24,14 @@ privileged aspect Story_Roo_JavaBean {
     
     public void Story.setQuestion(Question question) {
         this.question = question;
+    }
+    
+    public String Story.getTitle() {
+        return this.title;
+    }
+    
+    public void Story.setTitle(String title) {
+        this.title = title;
     }
     
 }
