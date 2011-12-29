@@ -4,7 +4,6 @@
 package ch.epfl.psytest.web;
 
 import ch.epfl.psytest.domain.Slide;
-import java.io.UnsupportedEncodingException;
 import java.lang.Integer;
 import java.lang.Long;
 import java.lang.String;
@@ -18,21 +17,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.util.UriUtils;
-import org.springframework.web.util.WebUtils;
 
 privileged aspect SlideController_Roo_Controller {
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public String SlideController.create(@Valid Slide slide, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("slide", slide);
-            return "slides/create";
-        }
-        uiModel.asMap().clear();
-        slide.persist();
-        return "redirect:/slides/" + encodeUrlPathSegment(slide.getId().toString(), httpServletRequest);
-    }
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String SlideController.createForm(Model uiModel) {
@@ -89,18 +75,6 @@ privileged aspect SlideController_Roo_Controller {
     @ModelAttribute("slides")
     public Collection<Slide> SlideController.populateSlides() {
         return Slide.findAllSlides();
-    }
-    
-    String SlideController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
-        String enc = httpServletRequest.getCharacterEncoding();
-        if (enc == null) {
-            enc = WebUtils.DEFAULT_CHARACTER_ENCODING;
-        }
-        try {
-            pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
-        }
-        catch (UnsupportedEncodingException uee) {}
-        return pathSegment;
     }
     
 }
