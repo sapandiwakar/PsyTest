@@ -17,11 +17,9 @@
 
 <div id="slides" style="padding: 5px; height: 280px; width: 420px; background-color: #E6E6E0">
 	<c:forEach items="${story.slides}" var="slide">
-		<img src="<c:out escapeXml='false' value="${slide.fileName}"/>" title="<c:out escapeXml='false' value="${slide.description}"/>"> 
+		<img src="../uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>" title="<c:out escapeXml='false' value="${slide.description}"/>" height="280px" width="420px"> 
 	</c:forEach>
-			
-
-    		<img src="../images/2.jpg" title="Masterpiece">
+			<img src="../images/2.jpg" title="Masterpiece">
             <img src="../images/3.jpg" title="Teeth">
             <img src="../images/4.jpg" title="Roar">            
         </div>

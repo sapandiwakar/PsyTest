@@ -33,50 +33,50 @@ public class Slide {
 
 	// save file to disk ,save filename, file size to database
 	public void setFile(CommonsMultipartFile file) {
-		this.file = file;		
-		String tempFileName = file.getOriginalFilename();
-		this.size = file.getSize();
-//		System.out.println("this.fileName: " + this.fileName + " ,  "
-//				+ file.getClass().getName());
-
-		int dotPos = tempFileName.lastIndexOf(".");
-		String extension = tempFileName.substring(dotPos + 1);
-		this.fileName = new Date().getTime() + "." + extension; 
-
-		File outputFile = new File(pathToSave + fileName);
-		if (outputFile == null || !outputFile.exists()) {
-			new File(pathToSave).mkdirs();
-		}
-		try {
-			file.transferTo(outputFile);
-		} catch (IllegalStateException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-//		System.out.println(outputFile.getPath());
-//	System.out.println(outputFile.getAbsolutePath());
+//		this.file = file;		
+//		String tempFileName = file.getOriginalFilename();
+//		this.size = file.getSize();
+////		System.out.println("this.fileName: " + this.fileName + " ,  "
+////				+ file.getClass().getName());
 //
-//		try {
-//			InputStream in = file.getInputStream();
-//			FileOutputStream f = new FileOutputStream(pathToSave
-//					+ fileName);
+//		int dotPos = tempFileName.lastIndexOf(".");
+//		String extension = tempFileName.substring(dotPos + 1);
+//		this.fileName = new Date().getTime() + "." + extension; 
 //
-//			int ch = 0;
-//			while ((ch = in.read()) != -1) {
-//				f.write(ch);
-//			}
-//			f.flush();
-//			f.close();
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
+//		File outputFile = new File(pathToSave + fileName);
+//		if (outputFile == null || !outputFile.exists()) {
+//			new File(pathToSave).mkdirs();
 //		}
-		this.fileName = outputFile.getAbsolutePath();
+//		try {
+//			file.transferTo(outputFile);
+//		} catch (IllegalStateException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+////		System.out.println(outputFile.getPath());
+////	System.out.println(outputFile.getAbsolutePath());
+////
+////		try {
+////			InputStream in = file.getInputStream();
+////			FileOutputStream f = new FileOutputStream(pathToSave
+////					+ fileName);
+////
+////			int ch = 0;
+////			while ((ch = in.read()) != -1) {
+////				f.write(ch);
+////			}
+////			f.flush();
+////			f.close();
+////		} catch (FileNotFoundException e) {
+////			// TODO Auto-generated catch block
+////			e.printStackTrace();
+////		} catch (IOException e) {
+////			// TODO Auto-generated catch block
+////			e.printStackTrace();
+////		}
+//		this.fileName = outputFile.getAbsolutePath();
 	}
 }

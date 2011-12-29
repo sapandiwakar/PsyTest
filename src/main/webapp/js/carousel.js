@@ -68,7 +68,7 @@ Ext.define('Ext.ux.Carousel',{
         this.els.navNext = dh.append(this.els.navigation, {tag: 'a', href: '#', cls: 'ux-carousel-nav-next'}, true);
         
         if(this.showPlayButton) {
-            this.els.navPlay = dh.append(this.els.navigation, {tag: 'a', href: '#', cls: 'ux-carousel-nav-play'}, true)
+            this.els.navPlay = dh.append(this.els.navigation, {tag: 'a', href: '#', cls: 'ux-carousel-nav-play'}, true);
         }
         this.els.navPrev = dh.append(this.els.navigation, {tag: 'a', href: '#', cls: 'ux-carousel-nav-prev'}, true);
 
@@ -80,7 +80,7 @@ Ext.define('Ext.ux.Carousel',{
             height: this.slideHeight + 'px'
         });
 
-        this.els.caption.setWidth((this.slideWidth - (this.els.navNext.getWidth()*2) - (this.showPlayButton ? this.els.navPlay.getWidth() : 0) - 20) + 'px')
+        this.els.caption.setWidth((this.slideWidth - (this.els.navNext.getWidth()*2) - (this.showPlayButton ? this.els.navPlay.getWidth() : 0) - 20) + 'px');
         
         items.appendTo(this.els.slidesWrap).each(function(item) {
             item = item.wrap({cls: 'ux-carousel-slide'});
@@ -146,7 +146,7 @@ Ext.define('Ext.ux.Carousel',{
                     this.els.navigation.stopAnimation(false).shift({
                         y: this.els.container.getY(),
                         duration: this.transitionDuration
-                    })
+                    });
                 }
             }, this);
 
@@ -156,7 +156,7 @@ Ext.define('Ext.ux.Carousel',{
                     this.els.navigation.stopAnimation(false).shift({
                         y: this.els.navigation.getHeight() - this.els.container.getY(),
                         duration: this.transitionDuration
-                    })
+                    });
                 }
             }, this);
         }
@@ -293,7 +293,7 @@ Ext.define('Ext.ux.Carousel',{
                             });
                         },
                         scope: this
-                    })
+                    });
                     break;
 
                 default:
