@@ -59,7 +59,7 @@ Ext.define('Ext.ux.Carousel',{
         var dh = Ext.core.DomHelper;
         
         this.carouselSize = 0;
-        var items = this.el.select("img");  //replace itemSelector with "img" tag
+        var items = this.el.select(this.itemSelector);  //replace itemSelector with "img" tag
         this.els.container = dh.append(this.el, {cls: 'ux-carousel-container'}, true);
         this.els.slidesWrap = dh.append(this.els.container, {cls: 'ux-carousel-slides-wrap'}, true);
         
