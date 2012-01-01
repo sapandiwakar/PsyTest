@@ -7,16 +7,24 @@
 
 <body>
 
-<h1><c:out escapeXml='false' value="${question.statement}"/></h1>
+	<h1>
+		<c:out escapeXml='false' value="${question.statement}" />
+	</h1>
 
-<div id="question_choices">
-	<c:forEach items="${question.choices}" var="choice">
-		<input type="radio" name="choices" value="<c:out escapeXml='false' value="${choice.description}"/>"><c:out escapeXml='false' value="${choice.description}"/>
-		<br/>
-		<img src="../uploadedFiles/<c:out escapeXml='false' value="${choice.fileName}"/>" title="<c:out escapeXml='false' value="${choice.description}"/>" style="vertical-align:middle" height="140px" width="210px">
-		<br/><br/>
-	</c:forEach>
-</div>
+	<div id="question_choices">
+		<c:forEach items="${question.choices}" var="choice">
+			<input type="radio" name="choices"
+				value="<c:out escapeXml='false' value="${choice.description}"/>">
+			<c:out escapeXml='false' value="${choice.description}" />
+			<br />
+			<img
+				src="../uploadedFiles/<c:out escapeXml='false' value="${choice.fileName}"/>"
+				title="<c:out escapeXml='false' value="${choice.description}"/>"
+				style="vertical-align: middle" height="140px" width="210px">
+			<br />
+			<br />
+		</c:forEach>
+	</div>
 
 </body>
 </html>

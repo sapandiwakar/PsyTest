@@ -1,49 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
-
-<html xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-
-<link rel="stylesheet" type="text/css" href="../../../css/ext-all.css" />
-<script type="text/javascript" src="../../../js/ext-all-debug.js"><jsp:text /></script>
-<script type="text/javascript" src="../../../js/carousel.js"><jsp:text /></script>
-<link rel="stylesheet" type="text/css" href="../../../css/example.css" />
-<link rel="stylesheet" type="text/css" href="../../../css/carousel.css" />
-
-<script type="text/javascript">
-	Ext.onReady(function() {
-		Ext.QuickTips.init();
-
-		new Ext.ux.Carousel('storys');
-	});
-</script>
-</head>
-<body>
-
-	<h1>
-		<c:out escapeXml='false' value="${experiment.subjectName}" />
-	</h1>
-
-	<div id="slides"
-		style="padding: 5px; height: 280px; width: 420px; background-color: #E6E6E0">
-		<c:forEach items="${experiment.stroys}" var="story">
-			<div class="item"
-				title="<c:out escapeXml='false' value="${story.title}"/>">
-				<page:show
-					id="ch.ephl.story.<c:out escapeXml='false' value="${story.title}"/>"
-					object="${story}" path="/storys">
-				</page:show>
-			</div>
-		</c:forEach>
-	</div>
-
-</body>
-</html>
-<!-- 
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
@@ -53,4 +8,3 @@
         <field:display field="subjectName" id="s_ch_epfl_psytest_domain_Experiment_subjectName" object="${experiment}" z="bY5iCg4TjPps4XCqNbbRHbxHisU="/>
     </page:show>
 </div>
- -->
