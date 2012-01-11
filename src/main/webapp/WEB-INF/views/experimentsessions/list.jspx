@@ -8,6 +8,7 @@
             <table:column id="c_ch_epfl_psytest_domain_ExperimentSession_venue" property="venue" z="LPHf01KeqysANDikRyzL2qHpYPU="/>
             <table:column date="true" dateTimePattern="${experimentSession_sessiondate_date_format}" id="c_ch_epfl_psytest_domain_ExperimentSession_sessionDate" property="sessionDate" z="eimtbgpEW5Rh66kezbZmRSpbMOw="/>
             <table:column id="c_ch_epfl_psytest_domain_ExperimentSession_experiments" property="experiments" z="NfW5zQxLvMAK+ub48zxhikxTBUY="/>
+            <table:column id="c_ch_epfl_psytest_domain_ExperimentSession_stories" property="stories" z="k3kye9bVB1TM5eGulXbCvG9Ze7o="/>
         </table:table>
     </page:list>
 </div>

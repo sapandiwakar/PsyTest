@@ -5,33 +5,60 @@
 <%@ include file="../../../html/libraries.html"%>
 
 <script type="text/javascript">
-       Ext.onReady(function() {
-               Ext.QuickTips.init();
+	Ext.onReady(function() {
+		Ext.QuickTips.init();
 
-               new Ext.ux.Carousel('storys', {
+		new Ext.ux.Carousel('slides', {
 
-               transitionEasing: 'easeIn'
-               });
-       });
+			transitionEasing : 'easeIn'
+		});
+	});
 </script>
 </head>
 <body>
 
-       <h1>
-               <c:out escapeXml='false' value="${experiment.subjectName}" />
-       </h1>
+	<h1>
+		<c:out escapeXml='false' value="${experiment.subjectName}" />
+	</h1>
 
-       <div id="storys"
-               style="padding: 5px; height: 280px; width: 420px; background-color: #E6E6E0">
-               <c:forEach items="${experiment.stories}" var="story">
-                       <c:forEach items="${story.slides}" var="slide">
-                               <img
-                                       src="../uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>"
-                                       title="<c:out escapeXml='false' value="${slide.description}"/>"
-                                       height="280px" width="420px">
-                       </c:forEach>                        
-               </c:forEach>
-       </div>
+	<div id="storys">
+		<c:forEach items="${experiment.stories}" var="story">
+
+			<div id="slides">
+				<!-- Slides -->
+				<c:forEach items="${story.slides}" var="slide">
+					<img
+						src="../uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>"
+						title="<c:out escapeXml='false' value="${slide.description}"/>"
+						height="280px" width="420px">
+				</c:forEach>
+			</div>
+			
+			<div id="question">
+				<!-- Question -->
+				<h1>
+					<c:out escapeXml='false' value="${story.question.statement}" />
+				</h1>
+
+				<div id="question_choices">
+					<c:forEach items="${story.question.choices}" var="choice">
+						<input type="radio" name="choices"
+							value="<c:out escapeXml='false' value="${choice.description}"/>">
+						<c:out escapeXml='false' value="${choice.description}" />
+						<br />
+						<img
+							src="../uploadedFiles/<c:out escapeXml='false' value="${choice.fileName}"/>"
+							title="<c:out escapeXml='false' value="${choice.description}"/>"
+							style="vertical-align: middle" height="140px" width="210px">
+						<br />
+						<br />
+					</c:forEach>
+				</div>
+			</div>
+		</c:forEach>
+
+
+	</div>
 
 </body>
 </html>

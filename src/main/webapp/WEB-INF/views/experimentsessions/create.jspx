@@ -6,7 +6,8 @@
         <field:input field="description" id="c_ch_epfl_psytest_domain_ExperimentSession_description" z="PWUGrqV0flHPQoEWIKzfFNelLx0="/>
         <field:input field="venue" id="c_ch_epfl_psytest_domain_ExperimentSession_venue" z="e5B6Hmyk4/tRMS2Q1d7TLUkEoSs="/>
         <field:datetime dateTimePattern="${experimentSession_sessiondate_date_format}" field="sessionDate" id="c_ch_epfl_psytest_domain_ExperimentSession_sessionDate" z="Pceg4KInNe6GH0AIXwIhM7LXaBw="/>
-        <field:select field="experiments" id="c_ch_epfl_psytest_domain_ExperimentSession_experiments" itemValue="id" items="${experiments}" multiple="true" path="/experiments" z="nUMLwWON6nYrv2gMbGOiQ8x9JjI="/>
+        <!--<field:select field="experiments" id="c_ch_epfl_psytest_domain_ExperimentSession_experiments" itemValue="id" items="${experiments}" multiple="true" path="/experiments" z="nUMLwWON6nYrv2gMbGOiQ8x9JjI="/>-->
+        <field:select field="stories" id="c_ch_epfl_psytest_domain_ExperimentSession_stories" itemValue="id" items="${storys}" multiple="true" path="/storys" z="jf6CSkYFbLK8LbRj0ZHxGiYy08k="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ch_epfl_psytest_domain_ExperimentSession" render="${not empty dependencies}" z="owDuwpMF4hRwWOM5Xch+dKxSfIU="/>
 </div>

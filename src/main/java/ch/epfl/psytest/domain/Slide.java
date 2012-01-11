@@ -1,10 +1,7 @@
 package ch.epfl.psytest.domain;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
 import javax.persistence.Transient;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;

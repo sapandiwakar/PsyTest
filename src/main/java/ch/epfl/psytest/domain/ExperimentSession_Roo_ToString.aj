@@ -13,6 +13,7 @@ privileged aspect ExperimentSession_Roo_ToString {
         sb.append("Experiments: ").append(getExperiments() == null ? "null" : getExperiments().size()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("SessionDate: ").append(getSessionDate()).append(", ");
+        sb.append("Stories: ").append(getStories() == null ? "null" : getStories().size()).append(", ");
         sb.append("Venue: ").append(getVenue()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();

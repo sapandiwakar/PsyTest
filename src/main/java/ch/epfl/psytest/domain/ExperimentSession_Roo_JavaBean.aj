@@ -4,6 +4,7 @@
 package ch.epfl.psytest.domain;
 
 import ch.epfl.psytest.domain.Experiment;
+import ch.epfl.psytest.domain.Story;
 import java.lang.String;
 import java.util.Date;
 import java.util.Set;
@@ -40,6 +41,14 @@ privileged aspect ExperimentSession_Roo_JavaBean {
     
     public void ExperimentSession.setExperiments(Set<Experiment> experiments) {
         this.experiments = experiments;
+    }
+    
+    public Set<Story> ExperimentSession.getStories() {
+        return this.stories;
+    }
+    
+    public void ExperimentSession.setStories(Set<Story> stories) {
+        this.stories = stories;
     }
     
 }

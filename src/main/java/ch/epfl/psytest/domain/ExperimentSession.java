@@ -12,6 +12,7 @@ import ch.epfl.psytest.domain.Experiment;
 import java.util.HashSet;
 import javax.persistence.ManyToMany;
 import javax.persistence.CascadeType;
+import ch.epfl.psytest.domain.Story;
 
 @RooJavaBean
 @RooToString
@@ -28,4 +29,7 @@ public class ExperimentSession {
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Experiment> experiments = new HashSet<Experiment>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Story> stories = new HashSet<Story>();
 }

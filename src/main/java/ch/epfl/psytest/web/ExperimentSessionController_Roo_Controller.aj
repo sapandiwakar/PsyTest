@@ -5,6 +5,7 @@ package ch.epfl.psytest.web;
 
 import ch.epfl.psytest.domain.Experiment;
 import ch.epfl.psytest.domain.ExperimentSession;
+import ch.epfl.psytest.domain.Story;
 import java.io.UnsupportedEncodingException;
 import java.lang.Integer;
 import java.lang.Long;
@@ -103,6 +104,11 @@ privileged aspect ExperimentSessionController_Roo_Controller {
     @ModelAttribute("experimentsessions")
     public Collection<ExperimentSession> ExperimentSessionController.populateExperimentSessions() {
         return ExperimentSession.findAllExperimentSessions();
+    }
+    
+    @ModelAttribute("storys")
+    public Collection<Story> ExperimentSessionController.populateStorys() {
+        return Story.findAllStorys();
     }
     
     void ExperimentSessionController.addDateTimeFormatPatterns(Model uiModel) {
