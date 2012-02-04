@@ -8,16 +8,18 @@ import ch.epfl.psytest.domain.Story;
 import java.util.HashSet;
 import javax.persistence.ManyToMany;
 import javax.persistence.CascadeType;
+import ch.epfl.psytest.domain.ExperimentSession;
+import javax.persistence.ManyToOne;
 
 @RooJavaBean
 @RooToString
 @RooEntity
 public class Experiment {
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Story> stories = new HashSet<Story>();
-
     private Integer subjectAge;
 
     private String subjectName;
+
+    @ManyToOne
+    private ExperimentSession experimentSession;
 }

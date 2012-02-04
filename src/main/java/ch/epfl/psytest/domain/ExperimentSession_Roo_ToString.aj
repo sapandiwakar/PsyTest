@@ -10,7 +10,6 @@ privileged aspect ExperimentSession_Roo_ToString {
     public String ExperimentSession.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Description: ").append(getDescription()).append(", ");
-        sb.append("Experiments: ").append(getExperiments() == null ? "null" : getExperiments().size()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("SessionDate: ").append(getSessionDate()).append(", ");
         sb.append("Stories: ").append(getStories() == null ? "null" : getStories().size()).append(", ");

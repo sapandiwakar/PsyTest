@@ -4,7 +4,7 @@
 package ch.epfl.psytest.web;
 
 import ch.epfl.psytest.domain.Experiment;
-import ch.epfl.psytest.domain.Story;
+import ch.epfl.psytest.domain.ExperimentSession;
 import java.io.UnsupportedEncodingException;
 import java.lang.Integer;
 import java.lang.Long;
@@ -92,9 +92,9 @@ privileged aspect ExperimentController_Roo_Controller {
         return Experiment.findAllExperiments();
     }
     
-    @ModelAttribute("storys")
-    public Collection<Story> ExperimentController.populateStorys() {
-        return Story.findAllStorys();
+    @ModelAttribute("experimentsessions")
+    public Collection<ExperimentSession> ExperimentController.populateExperimentSessions() {
+        return ExperimentSession.findAllExperimentSessions();
     }
     
     String ExperimentController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

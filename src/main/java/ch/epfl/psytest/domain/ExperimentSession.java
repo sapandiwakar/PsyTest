@@ -28,8 +28,5 @@ public class ExperimentSession {
     private Date sessionDate;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Experiment> experiments = new HashSet<Experiment>();
-
-    @ManyToMany(cascade = CascadeType.ALL)
     private Set<Story> stories = new HashSet<Story>();
 }

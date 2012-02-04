@@ -3,7 +3,6 @@
 
 package ch.epfl.psytest.web;
 
-import ch.epfl.psytest.domain.Experiment;
 import ch.epfl.psytest.domain.ExperimentSession;
 import ch.epfl.psytest.domain.Story;
 import java.io.UnsupportedEncodingException;
@@ -94,11 +93,6 @@ privileged aspect ExperimentSessionController_Roo_Controller {
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/experimentsessions";
-    }
-    
-    @ModelAttribute("experiments")
-    public Collection<Experiment> ExperimentSessionController.populateExperiments() {
-        return Experiment.findAllExperiments();
     }
     
     @ModelAttribute("experimentsessions")

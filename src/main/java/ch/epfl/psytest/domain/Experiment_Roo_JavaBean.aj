@@ -3,20 +3,11 @@
 
 package ch.epfl.psytest.domain;
 
-import ch.epfl.psytest.domain.Story;
+import ch.epfl.psytest.domain.ExperimentSession;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.Set;
 
 privileged aspect Experiment_Roo_JavaBean {
-    
-    public Set<Story> Experiment.getStories() {
-        return this.stories;
-    }
-    
-    public void Experiment.setStories(Set<Story> stories) {
-        this.stories = stories;
-    }
     
     public Integer Experiment.getSubjectAge() {
         return this.subjectAge;
@@ -32,6 +23,14 @@ privileged aspect Experiment_Roo_JavaBean {
     
     public void Experiment.setSubjectName(String subjectName) {
         this.subjectName = subjectName;
+    }
+    
+    public ExperimentSession Experiment.getExperimentSession() {
+        return this.experimentSession;
+    }
+    
+    public void Experiment.setExperimentSession(ExperimentSession experimentSession) {
+        this.experimentSession = experimentSession;
     }
     
 }
