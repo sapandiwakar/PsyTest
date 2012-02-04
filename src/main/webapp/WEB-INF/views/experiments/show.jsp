@@ -5,14 +5,23 @@
 <%@ include file="../../../html/libraries.html"%>
 
 <script type="text/javascript">
-	Ext.onReady(function() {
+/* 	Ext.onReady(function() {
 		Ext.QuickTips.init();
 
 		new Ext.ux.Carousel('slides', {
 
 			transitionEasing : 'easeIn'
 		});
-	});
+	}); */
+	document.addEventListener('DOMContentLoaded', function(){
+		var swipesArray = new Array();
+		var i = 0;
+		<c:forEach items="${experiment.stories}" var="story">
+			swipesArray[i] = Code.PhotoSwipe.attach( window.document.querySelectorAll('#story<c:out escapeXml='false' value="${story.id}"/> a'), { enableMouseWheel: false , enableKeyboard: true, allowUserZoom: false, loop: false, captionAndToolbarAutoHideDelay: 0 } );
+			++i;
+		</c:forEach>
+	}, false);
+	
 </script>
 </head>
 <body>
@@ -24,15 +33,18 @@
 	<div id="storys">
 		<c:forEach items="${experiment.stories}" var="story">
 
-			<div id="slides">
-				<!-- Slides -->
-				<c:forEach items="${story.slides}" var="slide">
-					<img
-						src="../uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>"
+			<h1><c:out escapeXml='false' value="${story.title}"/></h1>
+			<ul id="story<c:out escapeXml='false' value="${story.id}"/>">
+			<!-- Slides -->
+			<c:forEach items="${story.slides}" var="slide">
+					<li><a href="../uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>">
+						<img src="../uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>"
 						title="<c:out escapeXml='false' value="${slide.description}"/>"
 						height="280px" width="420px">
-				</c:forEach>
-			</div>
+					</a></li>
+				
+			</c:forEach>
+			</ul>
 			
 			<div id="question">
 				<!-- Question -->
