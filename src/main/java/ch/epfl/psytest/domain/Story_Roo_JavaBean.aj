@@ -6,15 +6,15 @@ package ch.epfl.psytest.domain;
 import ch.epfl.psytest.domain.Question;
 import ch.epfl.psytest.domain.Slide;
 import java.lang.String;
-import java.util.Set;
+import java.util.List;
 
 privileged aspect Story_Roo_JavaBean {
     
-    public Set<Slide> Story.getSlides() {
+    public List<Slide> Story.getSlides() {
         return this.slides;
     }
     
-    public void Story.setSlides(Set<Slide> slides) {
+    public void Story.setSlides(List<Slide> slides) {
         this.slides = slides;
     }
     
