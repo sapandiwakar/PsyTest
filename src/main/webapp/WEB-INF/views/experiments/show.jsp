@@ -6,70 +6,56 @@
 <%@ include file="../../../html/libraries.html"%>
 
 <script type="text/javascript">
-	/* 	Ext.onReady(function() {
-	 Ext.QuickTips.init();
+  document.addEventListener('DOMContentLoaded', function() {
+    var swipesArray = new Array();
+    var storyTitles = new Array();
+    var i = 0;
+    <c:forEach items="${experiment.experimentSession.stories}" var="story">
+    swipesArray[i] = Code.PhotoSwipe.attach(window.document
+        .querySelectorAll('#story<c:out escapeXml='false' value="${story.id}"/> a'), {
+      enableMouseWheel : false,
+      enableKeyboard : true,
+      allowUserZoom : false,
+      loop : false,
+      captionAndToolbarAutoHideDelay : 0
+    });
+    storyTitles[i] = '<c:out escapeXml='false' value="${story.title}"/>';
+    ++i;
+    $('#story<c:out escapeXml='false' value="${story.id}"/> li').hide().filter(':lt(1)').show();
+    </c:forEach>
 
-	 new Ext.ux.Carousel('slides', {
+    $('#storys').anythingSlider({
+      resizeContents : false, // If true, solitary images/objects in the panel will expand to fit the viewport
+      navigationSize : 3, // Set this to the maximum number of visible navigation tabs; false to disable
+      navigationFormatter : function(index, panel) { // Format navigation labels with text
+        return storyTitles[index - 1];
+      },
+      onSlideBegin : function(e, slider) {
+        // keep the current navigation tab in view
+        slider.navWindow(slider.targetPage);
+      }
+    });
 
-	 transitionEasing : 'easeIn'
-	 });
-	 }); */
-	document
-			.addEventListener(
-					'DOMContentLoaded',
-					function() {
-						var swipesArray = new Array();
-						var storyTitles = new Array();
-						var i = 0;
-						<c:forEach items="${experiment.experimentSession.stories}" var="story">
-						swipesArray[i] = Code.PhotoSwipe
-								.attach(
-										window.document
-												.querySelectorAll('#story<c:out escapeXml='false' value="${story.id}"/> a'),
-										{
-											enableMouseWheel : false,
-											enableKeyboard : true,
-											allowUserZoom : false,
-											loop : false,
-											captionAndToolbarAutoHideDelay : 0
-										});
-						storyTitles[i] = '<c:out escapeXml='false' value="${story.title}"/>';
-						++i;
-						$(
-								'#story<c:out escapeXml='false' value="${story.id}"/> li')
-								.hide().filter(':lt(1)').show();
-						</c:forEach>
+    $('#proceed').click(
+        function() {
+          <c:forEach items="${experiment.experimentSession.stories}" var="story">
+          $.post('../responses', {
+            question : <c:out escapeXml='false' value="${story.question.id}"/>,
+            experiment : <c:out escapeXml='false' value="${experiment.id}"/>,
+            answer : $(
+                'input[name=choices-story-<c:out escapeXml='false' value="${story.id}"/>]:checked')
+                .val(),
+            choiceIndexOfAnswer : $(
+                'input[name=choices-story-<c:out escapeXml='false' value="${story.id}"/>]:checked')
+                .attr('index')
+          }, function(data) {
+            /* alert(data); */
+          });
+          </c:forEach>
+          window.location.href = "../experiments";
+        });
 
-						$('#storys').anythingSlider({
-							resizeContents : false, // If true, solitary images/objects in the panel will expand to fit the viewport
-							navigationSize : 3, // Set this to the maximum number of visible navigation tabs; false to disable
-							navigationFormatter : function(index, panel) { // Format navigation labels with text
-								return storyTitles[index - 1];
-							},
-							onSlideBegin : function(e, slider) {
-								// keep the current navigation tab in view
-								slider.navWindow(slider.targetPage);
-							}
-						});
-
-						
-						$('#proceed').click(function() {
-							<c:forEach items="${experiment.experimentSession.stories}" var="story">
-							$.post('../responses', {
-								question: <c:out escapeXml='false' value="${story.question.id}"/>,
-								experiment: <c:out escapeXml='false' value="${experiment.id}"/>,
-								answer: $('input[name=choices-story-<c:out escapeXml='false' value="${story.id}"/>]:checked').val(),
-								choiceIndexOfAnswer: $('input[name=choices-story-<c:out escapeXml='false' value="${story.id}"/>]:checked').attr('index') 
-							}, function (data) {
-								/* alert(data); */
-							}
-							);
-							</c:forEach>
-							window.location.href = "../experiments";
-						});
-						
-
-					}, false);
+  }, false);
 </script>
 </head>
 <body>
@@ -106,19 +92,24 @@
 						</h1>
 
 						<div id="question-choices">
-							<c:forEach items="${story.question.choices}" var="choice" varStatus="status">
+							<c:forEach items="${story.question.choices}" var="choice"
+								varStatus="status">
 								<p class="question-choice">
-									<input type="radio" name="choices-story-<c:out escapeXml='false' value="${story.id}"/>"
+									<input type="radio"
+										name="choices-story-<c:out escapeXml='false' value="${story.id}"/>"
 										value="<c:out escapeXml='false' value="${choice.id}"/>"
 										id="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>"
 										index="<c:out escapeXml='false' value="${status.count}"/>">
 									<label
 										for="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>">
 										<c:out escapeXml='false' value="${choice.description}" />
-									</label> <img class="float-right"
-										src="../uploadedFiles/<c:out escapeXml='false' value="${choice.fileName}"/>"
-										title="<c:out escapeXml='false' value="${choice.description}"/>"
-										style="vertical-align: middle" height="140px" width="210px">
+									</label>
+									<c:if test="${not empty choice.fileName}">
+										<img class="float-right"
+											src="../uploadedFiles/<c:out escapeXml='false' value="${choice.fileName}"/>"
+											title="<c:out escapeXml='false' value="${choice.description}"/>"
+											style="vertical-align: middle" height="140px" width="210px">
+									</c:if>
 									<br /> <br />
 								</p>
 							</c:forEach>

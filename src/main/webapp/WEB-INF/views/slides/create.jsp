@@ -1,7 +1,7 @@
 <form id="slide" action="/PsyTest/slides" method="POST"
 	enctype="multipart/form-data" onsubmit="encodePk()">
 	
-	File:  <input type="file" name="file" />  
+	<label for="_file_id">File : </label><input id="_file_id" type="file" name="file" />  
 	
 	<div id="_c_ch_epfl_psytest_domain_Slide_description_id">
 		<label for="_description_id">Description : </label><input
@@ -17,6 +17,7 @@
 					missingMessage : ''
 				}
 			}));
+
 		</script>
 	</div>
 	<br />

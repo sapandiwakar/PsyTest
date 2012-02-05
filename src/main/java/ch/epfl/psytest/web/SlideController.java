@@ -43,6 +43,9 @@ public class SlideController extends SimpleFormController{
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)httpServletRequest;
 		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
 		for (MultipartFile f : fileMap.values()) {
+			if (f.isEmpty()) {
+				continue;
+			}
 			int dotPos = f.getOriginalFilename().lastIndexOf(".");
 			String extension = f.getOriginalFilename().substring(dotPos + 1);
 			slide.setFileName (new Date().getTime() + "." + extension);

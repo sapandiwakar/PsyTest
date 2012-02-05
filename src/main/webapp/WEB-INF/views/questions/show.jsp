@@ -17,10 +17,12 @@
 				value="<c:out escapeXml='false' value="${choice.description}"/>">
 			<c:out escapeXml='false' value="${choice.description}" />
 			<br />
-			<img
-				src="../uploadedFiles/<c:out escapeXml='false' value="${choice.fileName}"/>"
-				title="<c:out escapeXml='false' value="${choice.description}"/>"
-				style="vertical-align: middle" height="140px" width="210px">
+			<c:if test="${not empty choice.fileName}">
+				<img
+					src="../uploadedFiles/<c:out escapeXml='false' value="${choice.fileName}"/>"
+					title="<c:out escapeXml='false' value="${choice.description}"/>"
+					style="vertical-align: middle" height="140px" width="210px">
+			</c:if>
 			<br />
 			<br />
 		</c:forEach>
