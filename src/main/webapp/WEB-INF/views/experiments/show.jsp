@@ -55,14 +55,11 @@
 						
 						$('#proceed').click(function() {
 							<c:forEach items="${experiment.experimentSession.stories}" var="story">
-							var val_a = $('input[name=choices-story-<c:out escapeXml='false' value="${story.id}"/>]:checked').val();
-							var val_q = <c:out escapeXml='false' value="${story.question.id}"/>;
-							var val_e = <c:out escapeXml='false' value="${experiment.id}"/>;
-							
 							$.post('../responses', {
 								question: <c:out escapeXml='false' value="${story.question.id}"/>,
 								experiment: <c:out escapeXml='false' value="${experiment.id}"/>,
-								answer: $('input[name=choices-story-<c:out escapeXml='false' value="${story.id}"/>]:checked').val() 
+								answer: $('input[name=choices-story-<c:out escapeXml='false' value="${story.id}"/>]:checked').val(),
+								choiceIndexOfAnswer: $('input[name=choices-story-<c:out escapeXml='false' value="${story.id}"/>]:checked').attr('index') 
 							}, function (data) {
 								/* alert(data); */
 							}
@@ -109,11 +106,12 @@
 						</h1>
 
 						<div id="question-choices">
-							<c:forEach items="${story.question.choices}" var="choice">
+							<c:forEach items="${story.question.choices}" var="choice" varStatus="status">
 								<p class="question-choice">
 									<input type="radio" name="choices-story-<c:out escapeXml='false' value="${story.id}"/>"
 										value="<c:out escapeXml='false' value="${choice.id}"/>"
-										id="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>">
+										id="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>"
+										index="<c:out escapeXml='false' value="${status.count}"/>">
 									<label
 										for="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>">
 										<c:out escapeXml='false' value="${choice.description}" />

@@ -7,6 +7,7 @@
             <table:column id="c_ch_epfl_psytest_domain_Response_question" property="question" z="SQudQQ43LVk+5Sz/aGlCfxqMZRA="/>
             <table:column id="c_ch_epfl_psytest_domain_Response_answer" property="answer" z="kv4EkwJAAO8I6CyOLNtOyLlmJ3M="/>
             <table:column id="c_ch_epfl_psytest_domain_Response_experiment" property="experiment" z="IWLg7qqfP1eGYTtdDLsCjGeAPYA="/>
+            <table:column id="c_ch_epfl_psytest_domain_Response_choiceIndexOfAnswer" property="choiceIndexOfAnswer" z="tFwNVrwpy16SAvRrW9o8TP6PTMk="/>
         </table:table>
     </page:list>
 </div>

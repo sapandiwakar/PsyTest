@@ -23,4 +23,5 @@ public class Story {
     private Question question;
 
     private String title;
+
 }

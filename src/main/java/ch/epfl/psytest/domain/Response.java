@@ -21,4 +21,6 @@ public class Response {
 
     @ManyToOne
     private Experiment experiment;
+
+    private int choiceIndexOfAnswer;
 }

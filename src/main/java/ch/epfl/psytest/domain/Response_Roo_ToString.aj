@@ -10,6 +10,7 @@ privileged aspect Response_Roo_ToString {
     public String Response.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Answer: ").append(getAnswer()).append(", ");
+        sb.append("ChoiceIndexOfAnswer: ").append(getChoiceIndexOfAnswer()).append(", ");
         sb.append("Experiment: ").append(getExperiment()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Question: ").append(getQuestion()).append(", ");

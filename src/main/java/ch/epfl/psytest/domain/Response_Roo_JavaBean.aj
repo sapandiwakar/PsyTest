@@ -33,4 +33,12 @@ privileged aspect Response_Roo_JavaBean {
         this.experiment = experiment;
     }
     
+    public int Response.getChoiceIndexOfAnswer() {
+        return this.choiceIndexOfAnswer;
+    }
+    
+    public void Response.setChoiceIndexOfAnswer(int choiceIndexOfAnswer) {
+        this.choiceIndexOfAnswer = choiceIndexOfAnswer;
+    }
+    
 }

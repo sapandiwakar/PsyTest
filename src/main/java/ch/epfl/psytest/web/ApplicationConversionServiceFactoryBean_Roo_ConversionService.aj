@@ -6,6 +6,7 @@ package ch.epfl.psytest.web;
 import ch.epfl.psytest.domain.Experiment;
 import ch.epfl.psytest.domain.ExperimentSession;
 import ch.epfl.psytest.domain.Question;
+import ch.epfl.psytest.domain.Response;
 import ch.epfl.psytest.domain.Slide;
 import ch.epfl.psytest.domain.Story;
 import java.lang.String;
@@ -18,6 +19,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(new ExperimentConverter());
         registry.addConverter(new ExperimentSessionConverter());
         registry.addConverter(new QuestionConverter());
+        registry.addConverter(new ResponseConverter());
         registry.addConverter(new SlideConverter());
         registry.addConverter(new StoryConverter());
     }
@@ -44,6 +46,13 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     static class ch.epfl.psytest.web.ApplicationConversionServiceFactoryBean.QuestionConverter implements Converter<Question, String> {
         public String convert(Question question) {
             return new StringBuilder().append(question.getStatement()).toString();
+        }
+        
+    }
+    
+    static class ch.epfl.psytest.web.ApplicationConversionServiceFactoryBean.ResponseConverter implements Converter<Response, String> {
+        public String convert(Response response) {
+            return new StringBuilder().append(response.getChoiceIndexOfAnswer()).toString();
         }
         
     }

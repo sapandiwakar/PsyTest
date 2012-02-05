@@ -6,5 +6,6 @@
         <field:select field="question" id="c_ch_epfl_psytest_domain_Response_question" itemValue="id" items="${questions}" path="/questions" z="JY7/lZryHfqUew96crHWiUL5DP0="/>
         <field:select field="answer" id="c_ch_epfl_psytest_domain_Response_answer" itemValue="id" items="${slides}" path="/slides" z="3PcWpN/Nen5hSr0TITWx//ShnAg="/>
         <field:select field="experiment" id="c_ch_epfl_psytest_domain_Response_experiment" itemValue="id" items="${experiments}" path="/experiments" z="fQu0VxeLE7Yp5nFe4mnNjIhwaTQ="/>
+        <field:input field="choiceIndexOfAnswer" id="c_ch_epfl_psytest_domain_Response_choiceIndexOfAnswer" z="t3yujq8OcZf3DjYTYoajBm0aOto="/>
     </form:update>
 </div>
