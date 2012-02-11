@@ -1,9 +1,19 @@
 /* main elements */
 
 body,div,td {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Century Gothic, Arial;
 	font-size: 12px;
 	color: #666;
+}
+
+body
+{	
+	color: #fff;
+	font-family: Century Gothic, Arial;
+	font-size: 12px;
+	line-height: 1.5;
+	margin-top: 20px;
+	margin-bottom: 30px;
 }
 
 body {
