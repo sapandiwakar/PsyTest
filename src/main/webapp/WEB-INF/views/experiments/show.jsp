@@ -37,68 +37,77 @@
     }); */
 
     var storyDialog = $("#storys").dialog({
-      height: $(document).height() - 20,
-      width: $(document).width() - 20
+      height : $(document).height() - 20,
+      width : $(document).width() - 20
     });
-    
-    $("#storys").awShowcase(
-      	{
-       		content_width:			$(document).width() - 20,
-      		content_height:			$(document).height() - 20,
-      		fit_to_parent:			true,
-      		auto:					true,
-      		interval:				3000,
-      		continuous:				false,
-      		loading:				true,      		
-      		arrows:					true,
-      		buttons:				true,
-      		btn_numbers:			true,
-      		keybord_keys:			true,
-      		mousetrace:				false, /* Trace x and y coordinates for the mouse */
-      		pauseonover:			true,
-      		stoponclick:			true,
-      		transition:				'hslide', /* hslide/vslide/fade */
-      		transition_speed:		500,
-      		transition_delay:		300,
-      		show_caption:			'onhover', /* onload/onhover/show */
-      		thumbnails:				false,
-      		thumbnails_position:	'outside-last', /* outside-last/outside-first/inside-last/inside-first */
-      		thumbnails_direction:	'horizontal', /* vertical/horizontal */
-      		thumbnails_slidex:		0, /* 0 = auto / 1 = slide one thumbnail / 2 = slide two thumbnails / etc. */
-      		dynamic_height:			false, /* For dynamic height to work in webkit you need to set the width and height of images in the source. Usually works to only set the dimension of the first slide in the showcase. */
-      		speed_change:			false, /* Set to true to prevent users from swithing more then one slide at once. */
-      		viewline:				false /* If set to true content_width, thumbnails, transition and dynamic_height will be disabled. As for dynamic height you need to set the width and height of images in the source. */
-      	});
-    
-    
-    
-    $('#start-experiment').click(
-        function() {
-          $("#storys").dialog('open');  
-    });
-    
-    $('#proceed').click(
-        function() {
-          <c:forEach items="${experiment.experimentSession.stories}" var="story">
-          $.post('../responses', {
-            question : <c:out escapeXml='false' value="${story.question.id}"/>,
-            experiment : <c:out escapeXml='false' value="${experiment.id}"/>,
-            answer : $(
-                'input[name=choices-story-<c:out escapeXml='false' value="${story.id}"/>]:checked')
-                .val(),
-            choiceIndexOfAnswer : $(
-                'input[name=choices-story-<c:out escapeXml='false' value="${story.id}"/>]:checked')
-                .attr('index')
-          }, function(data) {
-            /* alert(data); */
-          });
-          </c:forEach>
-          window.location.href = "../experiments";
-        });
-    /* $('#storys_div').dialog(); */
 
+    $('#start-experiment').click(function() {
+      $("#storys").dialog('open');
+    });
+
+    var answerIds = new Array();
+    var storyIds = new Array();
+    var questionIds = new Array();
+    var choiceIndexes = new Array();
+
+    var temp = $('#proceed');
+    $('#proceed').live('click', function() {
+      for ( var i = 0; i < storyIds.length; ++i) {
+        $.post('../responses', {
+          question : questionIds[i],
+          experiment : <c:out escapeXml='false' value="${experiment.id}"/>,
+          answer : answerIds[i],
+          choiceIndexOfAnswer : choiceIndexes[i]
+        }, function(data) {
+          /* alert(data); */
+        });
+      }
+
+      window.location.href = "../experiments";
+    });
+
+    $('.question-choice').live('click', function() {
+      $(this).addClass('question-choice-checked');
+      $(this).siblings('.question-choice-checked').removeClass('question-choice-checked');
+      var storyId = $(this).attr('data-story-id');
+      var storyIndex = $.inArray(storyId, storyIds);
+      var i;
+      if (storyIndex != -1) {
+        i = storyIndex;
+      } else {
+        i = storyIds.length;
+      }
+      answerIds[i] = $(this).attr('data-choice-id');
+      storyIds[i] = $(this).attr('data-story-id');
+      questionIds[i] = $(this).attr('data-question-id');
+      choiceIndexes[i] = $(this).attr('data-choice-index');
+
+      $(this).siblings('input').attr('checked', false);
+      $('#' + $(this).attr('data-radio-id')).attr('checked', true);
+    });
+
+    $("#storys").awShowcase({
+      content_width : $(document).width() - 20,
+      content_height : $(document).height() - 20,
+      fit_to_parent : true,
+      auto : true,
+      interval : 3000,
+      continuous : true,
+      loading : true,
+      arrows : true,
+      buttons : true,
+      btn_numbers : true,
+      keybord_keys : true,
+      mousetrace : false,
+      pauseonover : true,
+      stoponclick : true,
+      transition : 'hslide', /* hslide/vslide/fade */
+      transition_speed : 500,
+      transition_delay : 300,
+      show_caption : 'onhover', /* onload/onhover/show */
+      viewline : false
+    });
   }, false);
-  
 </script>
 </head>
 <body>
@@ -145,24 +154,28 @@
 						<div id="question-choices">
 							<c:forEach items="${story.question.choices}" var="choice"
 								varStatus="status">
-								<p class="question-choice">
-									<input type="radio"
-										name="choices-story-<c:out escapeXml='false' value="${story.id}"/>"
-										value="<c:out escapeXml='false' value="${choice.id}"/>"
-										id="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>"
-										index="<c:out escapeXml='false' value="${status.count}"/>">
-									<label
+								<input type="radio" style="display: none;"
+									name="choices-story-<c:out escapeXml='false' value="${story.id}"/>"
+									value="<c:out escapeXml='false' value="${choice.id}"/>"
+									id="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>"
+									index="<c:out escapeXml='false' value="${status.count}"/>">
+								<%-- <label
 										for="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>">
 										<c:out escapeXml='false' value="${choice.description}" />
-									</label>
-									<c:if test="${not empty choice.fileName}">
-										<img class="float-right"
-											src="../uploadedFiles/<c:out escapeXml='false' value="${choice.fileName}"/>"
-											title="<c:out escapeXml='false' value="${choice.description}"/>"
-											style="vertical-align: middle" height="140px" width="210px">
-									</c:if>
-									<br /> <br />
-								</p>
+									</label> --%>
+								<c:if test="${not empty choice.fileName}">
+									<img class="question-choice"
+										data-radio-id="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>"
+										data-story-id="<c:out escapeXml='false' value="${story.id}"/>"
+										data-question-id="<c:out escapeXml='false' value="${story.question.id}"/>"
+										data-choice-id="<c:out escapeXml='false' value="${choice.id}"/>"
+										data-choice-index="<c:out escapeXml='false' value="${status.index}"/>"
+										src="../uploadedFiles/<c:out escapeXml='false' value="${choice.fileName}"/>"
+										title="<c:out escapeXml='false' value="${choice.description}"/>"
+										style="vertical-align: middle" height="140px" width="210px">
+								</c:if>
+								<br />
+								<br />
 							</c:forEach>
 						</div>
 					</div>
@@ -172,8 +185,11 @@
 				<!-- </li> -->
 				<!-- Story Ends -->
 			</c:forEach>
-
-
+			<div class="showcase-slide">
+				<div class="showcase-content">
+					<input value="Save" type="submit" id="proceed">
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -185,7 +201,7 @@
 			}));
 		</script> -->
 		<input value="Start Experiment" type="submit" id="start-experiment">
-		<input value="Save" type="submit" id="proceed">
+
 	</div>
 </body>
 </html>

@@ -549,7 +549,7 @@
 		
 		// Changes the content (no explanation/comments needed :)
 		function changeContent(id, direction) {
-			
+		  
 			// If the next content isn't the current content
 			if (current_id !== id && !animating) {
 				
@@ -648,6 +648,8 @@
 						displayAnchors(obj, true);
 						displayCaption(obj, true);
 						
+						contentArray[current_id] = obj.html();  // Change the content in our array so as to reflect the changes in html that might have occured in the current slide.
+						
 						// Animate next element
 						if (options.transition === 'hslide') {
 						
@@ -737,6 +739,7 @@
 							content_container.stop(true, true).animate({ height: obj2.find('.showcase-content').children().height()}, 200);
 							delay = 100;
 						}
+						contentArray[current_id] = obj.html();  // Change the content in our array so as to reflect the changes in html that might have occured in the current slide.
 						
 						// Animate current element
 						if (options.transition === 'hslide') {
