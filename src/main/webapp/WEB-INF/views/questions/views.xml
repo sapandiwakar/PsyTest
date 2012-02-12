@@ -9,7 +9,7 @@
         <put-attribute name="body" value="/WEB-INF/views/questions/show.jsp"/>
     </definition>
 <definition extends="default" name="questions/create">
-        <put-attribute name="body" value="/WEB-INF/views/questions/create.jspx"/>
+        <put-attribute name="body" value="/WEB-INF/views/questions/create.jsp"/>
     </definition>
 <definition extends="default" name="questions/update">
         <put-attribute name="body" value="/WEB-INF/views/questions/update.jspx"/>

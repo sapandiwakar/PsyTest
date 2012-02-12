@@ -84,20 +84,19 @@
           'DOMContentLoaded',
           function() {
 
-            $('#proceed').click(function() {
-              var questionId = dijit.byId('_question_id').get('value');
-              var storyTitle = dijit.byId('_title_id').get('value');
-              var queryString = "_slides=1&question=" + questionId + "&title=" + storyTitle;
+            $('#proceed').click(function() {              
+              var questionStatement = dijit.byId('_statement_id').get('value');
+              var queryString = "statement=" + questionStatement;
               $("#selected-slides li").each(function() {
-                queryString += '&slides=' + $(this).attr('id');
+                queryString += '&choices=' + $(this).attr('id');
               });
 
               $.ajax({
-                url : 'storys',
+                url : 'questions',
                 type : 'POST',
                 data : queryString,
                 success : function(response) {
-                  window.location.href = "storys";
+                  window.location.href = "questions";
                 }
               });
             });
@@ -201,23 +200,16 @@
             }));
 
             Spring.addDecoration(new Spring.ElementDecoration({
-              elementId : '_title_id',
+              elementId : '_statement_id',
               widgetType : 'dijit.form.ValidationTextBox',
               widgetAttrs : {
-                promptMessage : 'Enter Title',
-                invalidMessage : 'Please enter valid Title',
+                promptMessage : 'Enter Question Statement',
+                invalidMessage : 'Please enter valid Statement',
                 required : false,
                 missingMessage : ''
               }
             }));
 
-            Spring.addDecoration(new Spring.ElementDecoration({
-              elementId : '_question_id',
-              widgetType : 'dijit.form.FilteringSelect',
-              widgetAttrs : {
-                hasDownArrow : true
-              }
-            }));
           }, false);
 </script>
 
@@ -244,26 +236,16 @@
 		
 		<div>
 
-		<div id="_c_ch_epfl_psytest_domain_Story_question_id">
-			<label for="_question_id">Question : </label><select
-				id="_question_id" name="question">
-				<c:forEach items="${questions}" var="question">
-					<option value="<c:out escapeXml='false' value="${question.id}"/>">
-						<c:out escapeXml='false' value="${question.statement}" />
-					</option>
-				</c:forEach>
-			</select> <br />
+		<div id="_c_ch_epfl_psytest_domain_Question_statement_id">
+			<label for="_statement_id">Statement : </label><input id="_statement_id"
+				name="statement" type="text" value="" /><br />
 		</div>
 		<br />
-		<div id="_c_ch_epfl_psytest_domain_Story_title_id">
-			<label for="_title_id">Title : </label><input id="_title_id"
-				name="title" type="text" value="" /><br />
-		</div>
-		<br />
-		<div id="fc_ch_epfl_psytest_domain_Story_submit" class="submit">
+		<div id="fc_ch_epfl_psytest_domain_Question_submit" class="submit">
 
 			<input value="Save" type="submit" id="proceed" />
 		</div>
+		<br />
 	</div>
 	
 	</div>

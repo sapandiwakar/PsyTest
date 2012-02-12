@@ -54,6 +54,7 @@
 
     var temp = $('#proceed');
     $('#proceed').live('click', function() {
+      var nResponsesReceived = 0;
       for ( var i = 0; i < storyIds.length; ++i) {
         $.post('../responses', {
           question : questionIds[i],
@@ -61,11 +62,15 @@
           answer : answerIds[i],
           choiceIndexOfAnswer : choiceIndexes[i]
         }, function(data) {
+          nResponsesReceived++;
+          if (nResponsesReceived >= storyIds.length-1) {
+            window.location.href = "../experiments";
+          }
           /* alert(data); */
         });
       }
 
-      window.location.href = "../experiments";
+      
     });
 
     $('.question-choice').live('click', function() {
