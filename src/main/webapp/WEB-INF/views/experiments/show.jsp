@@ -60,6 +60,7 @@
           question : questionIds[i],
           experiment : <c:out escapeXml='false' value="${experiment.id}"/>,
           answer : answerIds[i],
+          story: storyIds[i],
           choiceIndexOfAnswer : choiceIndexes[i]
         }, function(data) {
           nResponsesReceived++;

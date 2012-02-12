@@ -4,8 +4,10 @@
 package ch.epfl.psytest.domain;
 
 import ch.epfl.psytest.domain.ExperimentSession;
+import ch.epfl.psytest.domain.Response;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Set;
 
 privileged aspect Experiment_Roo_JavaBean {
     
@@ -47,6 +49,14 @@ privileged aspect Experiment_Roo_JavaBean {
     
     public void Experiment.setQuestionChoicesOrder(String questionChoicesOrder) {
         this.questionChoicesOrder = questionChoicesOrder;
+    }
+    
+    public Set<Response> Experiment.getResponses() {
+        return this.responses;
+    }
+    
+    public void Experiment.setResponses(Set<Response> responses) {
+        this.responses = responses;
     }
     
 }

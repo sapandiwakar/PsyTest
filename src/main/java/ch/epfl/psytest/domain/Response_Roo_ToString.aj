@@ -14,6 +14,7 @@ privileged aspect Response_Roo_ToString {
         sb.append("Experiment: ").append(getExperiment()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Question: ").append(getQuestion()).append(", ");
+        sb.append("Story: ").append(getStory()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }

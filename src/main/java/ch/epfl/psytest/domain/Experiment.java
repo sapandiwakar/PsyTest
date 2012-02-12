@@ -10,6 +10,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.CascadeType;
 import ch.epfl.psytest.domain.ExperimentSession;
 import javax.persistence.ManyToOne;
+import ch.epfl.psytest.domain.Response;
 
 @RooJavaBean
 @RooToString
@@ -26,4 +27,7 @@ public class Experiment {
     private String storyOrder;
 
     private String questionChoicesOrder;
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy="experiment")
+    private Set<Response> responses = new HashSet<Response>();
 }

@@ -6,6 +6,7 @@ package ch.epfl.psytest.domain;
 import ch.epfl.psytest.domain.Experiment;
 import ch.epfl.psytest.domain.Question;
 import ch.epfl.psytest.domain.Slide;
+import ch.epfl.psytest.domain.Story;
 
 privileged aspect Response_Roo_JavaBean {
     
@@ -39,6 +40,14 @@ privileged aspect Response_Roo_JavaBean {
     
     public void Response.setChoiceIndexOfAnswer(int choiceIndexOfAnswer) {
         this.choiceIndexOfAnswer = choiceIndexOfAnswer;
+    }
+    
+    public Story Response.getStory() {
+        return this.story;
+    }
+    
+    public void Response.setStory(Story story) {
+        this.story = story;
     }
     
 }

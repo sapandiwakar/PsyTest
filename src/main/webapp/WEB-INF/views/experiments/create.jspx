@@ -6,8 +6,9 @@
         <field:input field="subjectAge" id="c_ch_epfl_psytest_domain_Experiment_subjectAge" validationMessageCode="field_invalid_integer" z="Kqn4dlG4KCZ+1lcOJq+IJH0vLNM="/>
         <field:input field="subjectName" id="c_ch_epfl_psytest_domain_Experiment_subjectName" z="2Ab0JHu3INE0QkbVhMxph/HBBew="/>
         <field:select field="experimentSession" id="c_ch_epfl_psytest_domain_Experiment_experimentSession" itemValue="id" items="${experimentsessions}" path="/experimentsessions" z="is3X88gVgDIVQ8YQRCzTqkyC26s="/>
-        <!-- <field:input field="storyOrder" id="c_ch_epfl_psytest_domain_Experiment_storyOrder" z="vIZ8aPEHorvKDur13Jhndqd0GeA="/>
-        <field:input field="questionChoicesOrder" id="c_ch_epfl_psytest_domain_Experiment_questionChoicesOrder" z="NTd4dFIA5Tark5GOnR6kN46i9aU="/> -->
+        <field:input field="storyOrder" id="c_ch_epfl_psytest_domain_Experiment_storyOrder" z="vIZ8aPEHorvKDur13Jhndqd0GeA=" render="false"/>
+        <field:input field="questionChoicesOrder" id="c_ch_epfl_psytest_domain_Experiment_questionChoicesOrder" z="NTd4dFIA5Tark5GOnR6kN46i9aU=" render="false"/> 
+        <field:select field="responses" id="c_ch_epfl_psytest_domain_Experiment_responses" itemValue="id" items="${responses}" multiple="true" path="/responses" z="LbMvfVdmeIKuKoDqiI8wX54+Vck=" render="false"/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ch_epfl_psytest_domain_Experiment" render="${not empty dependencies}" z="e4ZbNdFt2cS9Xyh+nGAZXbQXJg4="/>
 </div>

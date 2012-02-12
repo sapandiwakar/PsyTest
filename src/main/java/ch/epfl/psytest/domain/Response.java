@@ -7,6 +7,7 @@ import ch.epfl.psytest.domain.Question;
 import javax.persistence.ManyToOne;
 import ch.epfl.psytest.domain.Slide;
 import ch.epfl.psytest.domain.Experiment;
+import ch.epfl.psytest.domain.Story;
 
 @RooJavaBean
 @RooToString
@@ -23,4 +24,7 @@ public class Response {
     private Experiment experiment;
 
     private int choiceIndexOfAnswer;
+
+    @ManyToOne
+    private Story story;
 }

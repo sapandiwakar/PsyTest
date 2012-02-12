@@ -7,6 +7,7 @@ import ch.epfl.psytest.domain.Experiment;
 import ch.epfl.psytest.domain.Question;
 import ch.epfl.psytest.domain.Response;
 import ch.epfl.psytest.domain.Slide;
+import ch.epfl.psytest.domain.Story;
 import java.io.UnsupportedEncodingException;
 import java.lang.Integer;
 import java.lang.Long;
@@ -107,6 +108,11 @@ privileged aspect ResponseController_Roo_Controller {
     @ModelAttribute("slides")
     public Collection<Slide> ResponseController.populateSlides() {
         return Slide.findAllSlides();
+    }
+    
+    @ModelAttribute("storys")
+    public Collection<Story> ResponseController.populateStorys() {
+        return Story.findAllStorys();
     }
     
     String ResponseController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

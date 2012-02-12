@@ -26,6 +26,10 @@
         <menu:category id="c_response" z="/EtV5iwRtvniQ1cANvb3cis+7fo=">
             <!-- <menu:item id="i_response_new" messageCode="global_menu_new" url="/responses?form" z="1imwXpR33jTyqphLwLHDEP32iIo="/> -->
             <menu:item id="i_response_list" messageCode="global_menu_list" url="/responses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="OcF5x3LAKfi1RTzZeNuQ7LBvBGM="/>
+            <menu:item id="i_response_new" messageCode="global_menu_new" url="/responses?form" z="1imwXpR33jTyqphLwLHDEP32iIo="/>
+        </menu:category>
+        <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
+            <menu:item id="i_controller__exportdataindex_id" messageCode="global_generic" url="/exportdata/index" z="5HBNRn5G4j45HwyIhONmuJXQngg="/>
         </menu:category>
     </menu:menu>
 </div>

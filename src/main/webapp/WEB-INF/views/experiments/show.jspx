@@ -8,5 +8,6 @@
         <field:display field="experimentSession" id="s_ch_epfl_psytest_domain_Experiment_experimentSession" object="${experiment}" z="CIZRu2DE2Rw14197rJKljb7McjU="/>
         <field:display field="storyOrder" id="s_ch_epfl_psytest_domain_Experiment_storyOrder" object="${experiment}" z="ohZFLD9D+0Z6rkb2DoWxYmxfoXc="/>
         <field:display field="questionChoicesOrder" id="s_ch_epfl_psytest_domain_Experiment_questionChoicesOrder" object="${experiment}" z="LM4cn/DDOPbwdUmRAbH2SYc9A2k="/>
+        <field:display field="responses" id="s_ch_epfl_psytest_domain_Experiment_responses" object="${experiment}" z="JSgl4kpEqQpQErFWQkUo9SqJPOY="/>
     </page:show>
 </div>
