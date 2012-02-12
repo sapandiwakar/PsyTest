@@ -8,5 +8,6 @@
         <field:datetime dateTimePattern="${experimentSession_sessiondate_date_format}" field="sessionDate" id="c_ch_epfl_psytest_domain_ExperimentSession_sessionDate" z="Pceg4KInNe6GH0AIXwIhM7LXaBw="/>
         <!--<field:select field="experiments" id="c_ch_epfl_psytest_domain_ExperimentSession_experiments" itemValue="id" items="${experiments}" multiple="true" path="/experiments" z="nUMLwWON6nYrv2gMbGOiQ8x9JjI="/>-->
         <field:select field="stories" id="c_ch_epfl_psytest_domain_ExperimentSession_stories" itemValue="id" items="${storys}" multiple="true" path="/storys" z="jf6CSkYFbLK8LbRj0ZHxGiYy08k="/>
+        <field:input field="numberOfExperiments" id="c_ch_epfl_psytest_domain_ExperimentSession_numberOfExperiments" z="n1FtV9fVLUFgHucIVGxhEOav1zo="/>
     </form:update>
 </div>

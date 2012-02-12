@@ -7,5 +7,6 @@
         <field:display field="venue" id="s_ch_epfl_psytest_domain_ExperimentSession_venue" object="${experimentsession}" z="Ilpe/f3/qVjre77IUAlz221PW08="/>
         <field:display date="true" dateTimePattern="${experimentSession_sessiondate_date_format}" field="sessionDate" id="s_ch_epfl_psytest_domain_ExperimentSession_sessionDate" object="${experimentsession}" z="sL9Mrei11okmXjHSr1O3wwauOFg="/>
         <field:display field="stories" id="s_ch_epfl_psytest_domain_ExperimentSession_stories" object="${experimentsession}" z="vdA4EmHifkuJDEQlhyHS6SiEGtM="/>
+        <field:display field="numberOfExperiments" id="s_ch_epfl_psytest_domain_ExperimentSession_numberOfExperiments" object="${experimentsession}" z="3WiXMqaEHAJUNdMHAEJknpgZRzc="/>
     </page:show>
 </div>

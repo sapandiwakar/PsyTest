@@ -11,6 +11,7 @@ privileged aspect ExperimentSession_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Description: ").append(getDescription()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
+        sb.append("NumberOfExperiments: ").append(getNumberOfExperiments()).append(", ");
         sb.append("SessionDate: ").append(getSessionDate()).append(", ");
         sb.append("Stories: ").append(getStories() == null ? "null" : getStories().size()).append(", ");
         sb.append("Venue: ").append(getVenue()).append(", ");

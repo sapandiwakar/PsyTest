@@ -38,7 +38,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     
     static class ch.epfl.psytest.web.ApplicationConversionServiceFactoryBean.ExperimentSessionConverter implements Converter<ExperimentSession, String> {
         public String convert(ExperimentSession experimentSession) {
-            return new StringBuilder().append(experimentSession.getDescription()).append(" ").append(experimentSession.getVenue()).append(" ").append(experimentSession.getSessionDate()).toString();
+            return new StringBuilder().append(experimentSession.getDescription()).append(" ").append(experimentSession.getVenue()).append(" ").append(experimentSession.getSessionDate()).append(" ").append(experimentSession.getNumberOfExperiments()).toString();
         }
         
     }

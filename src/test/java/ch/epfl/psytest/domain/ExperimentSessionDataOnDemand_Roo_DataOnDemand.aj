@@ -28,6 +28,7 @@ privileged aspect ExperimentSessionDataOnDemand_Roo_DataOnDemand {
     public ExperimentSession ExperimentSessionDataOnDemand.getNewTransientExperimentSession(int index) {
         ExperimentSession obj = new ExperimentSession();
         setDescription(obj, index);
+        setNumberOfExperiments(obj, index);
         setSessionDate(obj, index);
         setVenue(obj, index);
         return obj;
@@ -36,6 +37,11 @@ privileged aspect ExperimentSessionDataOnDemand_Roo_DataOnDemand {
     public void ExperimentSessionDataOnDemand.setDescription(ExperimentSession obj, int index) {
         String description = "description_" + index;
         obj.setDescription(description);
+    }
+    
+    public void ExperimentSessionDataOnDemand.setNumberOfExperiments(ExperimentSession obj, int index) {
+        int numberOfExperiments = index;
+        obj.setNumberOfExperiments(numberOfExperiments);
     }
     
     public void ExperimentSessionDataOnDemand.setSessionDate(ExperimentSession obj, int index) {

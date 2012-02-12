@@ -29,4 +29,11 @@ public class ExperimentSession {
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Story> stories = new HashSet<Story>();
+
+    private int numberOfExperiments;
+    
+    public void incrementNumberOfExperiments() {
+      this.setNumberOfExperiments(this.getNumberOfExperiments()+1);
+      this.merge();
+    }
 }

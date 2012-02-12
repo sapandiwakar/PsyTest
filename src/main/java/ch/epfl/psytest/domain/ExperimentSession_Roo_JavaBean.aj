@@ -42,4 +42,12 @@ privileged aspect ExperimentSession_Roo_JavaBean {
         this.stories = stories;
     }
     
+    public int ExperimentSession.getNumberOfExperiments() {
+        return this.numberOfExperiments;
+    }
+    
+    public void ExperimentSession.setNumberOfExperiments(int numberOfExperiments) {
+        this.numberOfExperiments = numberOfExperiments;
+    }
+    
 }
