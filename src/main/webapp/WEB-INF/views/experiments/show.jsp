@@ -6,6 +6,8 @@
 <%@ include file="../../../html/libraries.html"%>
 
 <script type="text/javascript">
+  var storyOrder = "";
+  var questionChoicesOrder = "";
   document.addEventListener('DOMContentLoaded', function() {
     var swipesArray = new Array();
     var storyTitles = new Array();
@@ -90,7 +92,7 @@
       content_width : $(document).width() - 20,
       content_height : $(document).height() - 20,
       fit_to_parent : true,
-      auto : true,
+      auto : false,
       interval : 3000,
       continuous : true,
       loading : true,
@@ -107,6 +109,29 @@
       show_caption : 'onhover', /* onload/onhover/show */
       viewline : false
     });
+
+    <c:forEach items="${experiment.experimentSession.stories}" var="story">
+    	storyOrder += "<c:out escapeXml='false' value="${story.id}"/>;";
+    	<c:forEach items="${story.question.choices}" var="choice">
+    		questionChoicesOrder += "<c:out escapeXml='false' value="${choice.id}"/>:";
+    	</c:forEach>
+    	questionChoicesOrder = questionChoicesOrder.substring(0, questionChoicesOrder.length-1);
+    	questionChoicesOrder += ';';
+    </c:forEach>
+    
+    $.post('../experiments', {
+      _method: 'PUT',
+      subjectAge: <c:out escapeXml='false' value="${experiment.subjectAge}"/>,
+      subjectName: '<c:out escapeXml='false' value="${experiment.subjectName}"/>',
+      experimentSession: <c:out escapeXml='false' value="${experiment.experimentSession.id}"/>,
+      storyOrder: storyOrder,
+      questionChoicesOrder: questionChoicesOrder,
+      id: <c:out escapeXml='false' value="${experiment.id}"/>,
+      version : <c:out escapeXml='false' value="${experiment.version}"/>
+    }, function(data) {
+      /* alert(data); */
+    });
+    
   }, false);
 </script>
 </head>
@@ -128,6 +153,7 @@
 					<ul id="story<c:out escapeXml='false' value="${story.id}"/>"> --%>
 				<!-- Slides in a story here-->
 				<c:forEach items="${story.slides}" var="slide">
+
 					<div class="showcase-slide">
 						<div class="showcase-content">
 
@@ -136,7 +162,7 @@
 								<img
 								src="../uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>"
 								title="<c:out escapeXml='false' value="${slide.description}"/>">
-								<!-- height="280px" width="420px" -->
+								<!-- height="280px" width="420px" <c:out escapeXml='false' value="${story.id}"/> -->
 							</a>
 						</div>
 					</div>
@@ -185,6 +211,7 @@
 				<!-- </li> -->
 				<!-- Story Ends -->
 			</c:forEach>
+
 			<div class="showcase-slide">
 				<div class="showcase-content">
 					<input value="Save" type="submit" id="proceed">

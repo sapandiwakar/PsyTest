@@ -22,4 +22,8 @@ public class Experiment {
 
     @ManyToOne
     private ExperimentSession experimentSession;
+
+    private String storyOrder;
+
+    private String questionChoicesOrder;
 }

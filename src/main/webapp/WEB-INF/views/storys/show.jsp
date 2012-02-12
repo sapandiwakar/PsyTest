@@ -6,49 +6,56 @@
 
 
 <script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function() {
+  document
+      .addEventListener(
+          'DOMContentLoaded',
+          function() {
 
-    var myPhotoSwipe = Code.PhotoSwipe.attach(window.document.querySelectorAll('#slides a'), {
-      enableMouseWheel : false,
-      enableKeyboard : true,
-      allowUserZoom : false,
-      loop : false,
-      captionAndToolbarAutoHideDelay : 0
-    });
+            var myPhotoSwipe = Code.PhotoSwipe.attach(
+                window.document.querySelectorAll('#slides a'), {
+                  enableMouseWheel : false,
+                  enableKeyboard : true,
+                  allowUserZoom : false,
+                  loop : false,
+                  captionAndToolbarAutoHideDelay : 0
+                });
 
-    $("#sortable").sortable();
-    $("#sortable").disableSelection();
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
 
-    $('#proceed').click(function() {
-      var result = $('#sortable').sortable('toArray');
+            $('#proceed')
+                .click(
+                    function() {
+                      var result = $('#sortable').sortable('toArray');
 
-      var version = <c:out escapeXml='false' value="${story.version}"/> + 1;
-      var queryString = "_method=PUT";
-      for (var i = 0; i < result.length; ++i) {
-        queryString += "&slides="+result[i];
-      }
-      queryString += "&_slides=1&question=<c:out escapeXml='false' value="${story.question.id}"/>&title=<c:out escapeXml='false' value="${story.title}"/>&id=<c:out escapeXml='false' value="${story.id}"/>&version="+version;
-      $.ajax({
-        url : '../storys',
-        type : 'POST',
-        data : queryString,
-        success : function(response) {
-        }
-      });
+                      var version = <c:out escapeXml='false' value="${story.version}"/>;
+                      var queryString = "_method=PUT";
+                      for ( var i = 0; i < result.length; ++i) {
+                        queryString += "&slides=" + result[i];
+                      }
+                      queryString += "&_slides=1&question=<c:out escapeXml='false' value="${story.question.id}"/>&title=<c:out escapeXml='false' value="${story.title}"/>&id=<c:out escapeXml='false' value="${story.id}"/>&version="
+                          + version;
+                      $.ajax({
+                        url : '../storys',
+                        type : 'POST',
+                        data : queryString,
+                        success : function(response) {
+                        }
+                      });
 
-      /* $.post('../storys', {
-        _method : "PUT",
-        slides : result,
-        _slides : 1,
-        question : "<c:out escapeXml='false' value="${story.question.id}"/>",
-        title : "<c:out escapeXml='false' value="${story.title}"/>",
-        id : "<c:out escapeXml='false' value="${story.id}"/>",
-        Version : <c:out escapeXml='false' value="${story.version}"/>+1
-      }); */
+                      /* $.post('../storys', {
+                        _method : "PUT",
+                        slides : result,
+                        _slides : 1,
+                        question : "<c:out escapeXml='false' value="${story.question.id}"/>",
+                        title : "<c:out escapeXml='false' value="${story.title}"/>",
+                        id : "<c:out escapeXml='false' value="${story.id}"/>",
+                        Version : <c:out escapeXml='false' value="${story.version}"/>+1
+                      }); */
 
-    });
+                    });
 
-  }, false);
+          }, false);
 </script>
 </head>
 <body>
@@ -77,6 +84,33 @@
 		</ul>
 	</div>
 
-	<input value="Save" type="submit" id="proceed">
+	<!-- Question -->
+	<h1>
+		<c:out escapeXml='false' value="${story.question.statement}" />
+	</h1>
+
+	<div id="question-choices">
+		<c:forEach items="${story.question.choices}" var="choice"
+			varStatus="status">
+			<input type="radio" style="display: none;"
+				name="choices-story-<c:out escapeXml='false' value="${story.id}"/>"
+				value="<c:out escapeXml='false' value="${choice.id}"/>"
+				id="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>"
+				index="<c:out escapeXml='false' value="${status.count}"/>">
+			<%-- <label
+										for="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>">
+										<c:out escapeXml='false' value="${choice.description}" />
+									</label> --%>
+			<c:if test="${not empty choice.fileName}">
+				<img class="question-choice"
+					src="../uploadedFiles/<c:out escapeXml='false' value="${choice.fileName}"/>"
+					title="<c:out escapeXml='false' value="${choice.description}"/>"
+					style="vertical-align: middle" height="140px" width="210px">
+			</c:if>
+			<br />
+			<br />
+		</c:forEach>
+
+		<input value="Save" type="submit" id="proceed">
 </body>
 </html>

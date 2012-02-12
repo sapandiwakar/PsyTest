@@ -33,4 +33,20 @@ privileged aspect Experiment_Roo_JavaBean {
         this.experimentSession = experimentSession;
     }
     
+    public String Experiment.getStoryOrder() {
+        return this.storyOrder;
+    }
+    
+    public void Experiment.setStoryOrder(String storyOrder) {
+        this.storyOrder = storyOrder;
+    }
+    
+    public String Experiment.getQuestionChoicesOrder() {
+        return this.questionChoicesOrder;
+    }
+    
+    public void Experiment.setQuestionChoicesOrder(String questionChoicesOrder) {
+        this.questionChoicesOrder = questionChoicesOrder;
+    }
+    
 }

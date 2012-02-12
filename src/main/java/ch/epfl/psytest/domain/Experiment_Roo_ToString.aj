@@ -11,6 +11,8 @@ privileged aspect Experiment_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("ExperimentSession: ").append(getExperimentSession()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
+        sb.append("QuestionChoicesOrder: ").append(getQuestionChoicesOrder()).append(", ");
+        sb.append("StoryOrder: ").append(getStoryOrder()).append(", ");
         sb.append("SubjectAge: ").append(getSubjectAge()).append(", ");
         sb.append("SubjectName: ").append(getSubjectName()).append(", ");
         sb.append("Version: ").append(getVersion());

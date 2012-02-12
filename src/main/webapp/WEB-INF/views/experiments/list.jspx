@@ -7,6 +7,8 @@
             <table:column id="c_ch_epfl_psytest_domain_Experiment_subjectAge" property="subjectAge" z="oa1KX84Np2ROQ2t7j23iWkjm58k="/>
             <table:column id="c_ch_epfl_psytest_domain_Experiment_subjectName" property="subjectName" z="6OTJgoBFPKTcvRIJSLr9YzYLOU0="/>
             <table:column id="c_ch_epfl_psytest_domain_Experiment_experimentSession" property="experimentSession" z="H73y5Ab54DKls2u6+WhbZE5xngA="/>
+            <table:column id="c_ch_epfl_psytest_domain_Experiment_storyOrder" property="storyOrder" z="JhkCQqGw5kJ/rD2xRm8EeVMbWsE="/>
+            <table:column id="c_ch_epfl_psytest_domain_Experiment_questionChoicesOrder" property="questionChoicesOrder" z="1g4fyKHExX0jh6rK8vFhZ2LfmXg="/>
         </table:table>
     </page:list>
 </div>
