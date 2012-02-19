@@ -12,6 +12,9 @@
     var swipesArray = new Array();
     var storyTitles = new Array();
     var i = 0;
+    /* var currentSlideIndex = <c:out escapeXml='false' value="${currentSlideIndex}"/>;
+    var controlSlidesIndices = <c:out escapeXml='false' value="${controlSlideIndices}"/>; */
+    
     /* <c:forEach items="${experiment.experimentSession.stories}" var="story">
     swipesArray[i] = Code.PhotoSwipe.attach(window.document
         .querySelectorAll('#story<c:out escapeXml='false' value="${story.id}"/> a'), {
@@ -60,18 +63,17 @@
           question : questionIds[i],
           experiment : <c:out escapeXml='false' value="${experiment.id}"/>,
           answer : answerIds[i],
-          story: storyIds[i],
+          story : storyIds[i],
           choiceIndexOfAnswer : choiceIndexes[i]
         }, function(data) {
           nResponsesReceived++;
-          if (nResponsesReceived >= storyIds.length-1) {
+          if (nResponsesReceived >= storyIds.length - 1) {
             window.location.href = "../experiments";
           }
           /* alert(data); */
         });
       }
 
-      
     });
 
     $('.question-choice').live('click', function() {
@@ -113,31 +115,41 @@
       transition_speed : 500,
       transition_delay : 300,
       show_caption : 'onhover', /* onload/onhover/show */
-      viewline : false
+      viewline : false,
+      custom_function : function(current_id, content) {
+        var temp = current_id;
+        if ($(content).hasClass("control-slide")) {
+          $('.showcase-arrow-next').hide();
+          $('.showcase-arrow-previous').hide();
+        } else {
+          $('.showcase-arrow-next').show();
+          $('.showcase-arrow-previous').show();
+        }
+      }
     });
 
     <c:forEach items="${experiment.experimentSession.stories}" var="story">
-    	storyOrder += "<c:out escapeXml='false' value="${story.id}"/>;";
-    	<c:forEach items="${story.question.choices}" var="choice">
-    		questionChoicesOrder += "<c:out escapeXml='false' value="${choice.id}"/>:";
-    	</c:forEach>
-    	questionChoicesOrder = questionChoicesOrder.substring(0, questionChoicesOrder.length-1);
-    	questionChoicesOrder += ';';
+    storyOrder += "<c:out escapeXml='false' value="${story.id}"/>;";
+    <c:forEach items="${story.question.choices}" var="choice">
+    questionChoicesOrder += "<c:out escapeXml='false' value="${choice.id}"/>:";
     </c:forEach>
-    
+    questionChoicesOrder = questionChoicesOrder.substring(0, questionChoicesOrder.length - 1);
+    questionChoicesOrder += ';';
+    </c:forEach>
+
     $.post('../experiments', {
-      _method: 'PUT',
-      subjectAge: <c:out escapeXml='false' value="${experiment.subjectAge}"/>,
-      subjectName: '<c:out escapeXml='false' value="${experiment.subjectName}"/>',
-      experimentSession: <c:out escapeXml='false' value="${experiment.experimentSession.id}"/>,
-      storyOrder: storyOrder,
-      questionChoicesOrder: questionChoicesOrder,
-      id: <c:out escapeXml='false' value="${experiment.id}"/>,
+      _method : 'PUT',
+      subjectAge : <c:out escapeXml='false' value="${experiment.subjectAge}"/>,
+      subjectName : '<c:out escapeXml='false' value="${experiment.subjectName}"/>',
+      experimentSession : <c:out escapeXml='false' value="${experiment.experimentSession.id}"/>,
+      storyOrder : storyOrder,
+      questionChoicesOrder : questionChoicesOrder,
+      id : <c:out escapeXml='false' value="${experiment.id}"/>,
       version : <c:out escapeXml='false' value="${experiment.version}"/>
     }, function(data) {
       /* alert(data); */
     });
-    
+
   }, false);
 </script>
 </head>
@@ -160,9 +172,18 @@
 				<!-- Slides in a story here-->
 				<c:forEach items="${story.slides}" var="slide">
 
-					<div class="showcase-slide">
-						<div class="showcase-content">
-
+					<!-- <script>
+			           ++currentSlideIndex;
+			        </script> -->
+					<%-- <c:if test="${slide.isControlSlide}">
+						<script>
+			              controlSlideIndices.push(currentSlideIndex);
+			            </script>
+					</c:if> --%>
+					<c:choose>
+						<c:when test="${slide.isControlSlide}">
+							<div class="showcase-slide control-slide">
+							<div class="showcase-content control-slide">
 							<a
 								href="../uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>">
 								<img
@@ -172,6 +193,22 @@
 							</a>
 						</div>
 					</div>
+						</c:when>
+						<c:otherwise>
+							<div class="showcase-slide">
+							<div class="showcase-content">
+							<a
+								href="../uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>">
+								<img
+								src="../uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>"
+								title="<c:out escapeXml='false' value="${slide.description}"/>">
+								<!-- height="280px" width="420px" <c:out escapeXml='false' value="${story.id}"/> -->
+							</a>
+						</div>
+					</div>
+						</c:otherwise>
+					</c:choose>
+
 				</c:forEach>
 				<!-- </ul> Question begins here -->
 				<!-- <li> -->

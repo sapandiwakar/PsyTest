@@ -7,6 +7,7 @@
         <field:input field="description" id="c_ch_epfl_psytest_domain_Slide_description" z="Iv87jxNXxVvTu3mi7mJUpCX4Czo="/>
         <field:input field="size" id="c_ch_epfl_psytest_domain_Slide_size" z="bAQKNpbqHIpCo7idCQGGsUtdCCg="/>
         <field:input field="fileName" id="c_ch_epfl_psytest_domain_Slide_fileName" z="i5nI07n8XUsEmj1Ui9rlsy/dIrs="/>
+        <field:checkbox field="isControlSlide" id="c_ch_epfl_psytest_domain_Slide_isControlSlide" z="G12MdEMfJ7JLACGVBUgd+ZA6QuM="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ch_epfl_psytest_domain_Slide" render="${not empty dependencies}" z="zVIjl4MxeXfTHRNDZD6Tkerl/U0="/>
 </div>

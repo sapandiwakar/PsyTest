@@ -76,6 +76,11 @@
 #cart .gallery h5 {
 	display: none;
 }
+
+.control-slide-heading {
+border: 1px solid #4169E0;
+background: #4169E0 url(images/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x;
+}
 </style>
 
 <script type="text/javascript">
@@ -229,9 +234,19 @@
 
 				<li id="<c:out escapeXml='false' value="${slide.id}"/>"
 					class="ui-widget-content ui-corner-tr">
-					<h5 class="ui-widget-header">
-						<c:out escapeXml='false' value="${slide.description}" />
-					</h5> <img
+					<c:choose>
+						<c:when test="${slide.isControlSlide}">
+							<h5 class="ui-widget-header control-slide-heading">
+								<c:out escapeXml='false' value="${slide.description}" />
+							</h5>
+						</c:when>
+						<c:otherwise>
+							<h5 class="ui-widget-header">
+								<c:out escapeXml='false' value="${slide.description}" />
+							</h5>
+						</c:otherwise>
+					</c:choose> 
+					<img
 					src="uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>"
 					alt="<c:out escapeXml='false' value="${slide.description}"/>"
 					height="96" width="72"> <a

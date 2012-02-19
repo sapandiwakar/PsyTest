@@ -8,6 +8,9 @@
             <!-- <table:column id="c_ch_epfl_psytest_domain_Slide_file" property="file" z="kcTYb2fMj9aFsNqoJ7VA6TrIcv4="/>
             <table:column id="c_ch_epfl_psytest_domain_Slide_size" property="size" z="JJl0dpy2wGgC20514tMtMT/PjSY="/> -->
             <table:column id="c_ch_epfl_psytest_domain_Slide_fileName" property="fileName" z="sNLMh87yLCZT49wRZxSDCjtPfZQ="/>
+            <table:column id="c_ch_epfl_psytest_domain_Slide_file" property="file" z="kcTYb2fMj9aFsNqoJ7VA6TrIcv4="/>
+            <table:column id="c_ch_epfl_psytest_domain_Slide_size" property="size" z="JJl0dpy2wGgC20514tMtMT/PjSY="/>
+            <table:column id="c_ch_epfl_psytest_domain_Slide_isControlSlide" property="isControlSlide" z="v+cGzXNTQQI16mb3s6V8BLIcD+M="/>
         </table:table>
     </page:list>
 </div>

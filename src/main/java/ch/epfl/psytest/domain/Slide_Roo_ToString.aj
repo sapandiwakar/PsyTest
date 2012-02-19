@@ -10,11 +10,12 @@ privileged aspect Slide_Roo_ToString {
     public String Slide.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Description: ").append(getDescription()).append(", ");
-//        sb.append("File: ").append(getFile()).append(", ");
-//        sb.append("FileName: ").append(getFileName()).append(", ");
-//        sb.append("Id: ").append(getId()).append(", ");
-//        sb.append("Size: ").append(getSize()).append(", ");
-//        sb.append("Version: ").append(getVersion());
+        sb.append("File: ").append(getFile()).append(", ");
+        sb.append("FileName: ").append(getFileName()).append(", ");
+        sb.append("Id: ").append(getId()).append(", ");
+        sb.append("IsControlSlide: ").append(getIsControlSlide()).append(", ");
+        sb.append("Size: ").append(getSize()).append(", ");
+        sb.append("Version: ").append(getVersion());
         return sb.toString();
     }
     

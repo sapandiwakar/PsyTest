@@ -76,6 +76,11 @@
 #cart .gallery h5 {
 	display: none;
 }
+
+.control-slide-heading {
+border: 1px solid #4169E0;
+background: #4169E0 url(images/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x;
+}
 </style>
 
 <script type="text/javascript">
@@ -84,7 +89,7 @@
           'DOMContentLoaded',
           function() {
 
-            $('#proceed').click(function() {              
+            $('#proceed').click(function() {
               var questionStatement = dijit.byId('_statement_id').get('value');
               var queryString = "statement=" + questionStatement;
               $("#selected-slides li").each(function() {
@@ -220,34 +225,41 @@
 			<c:forEach items="${slides}" var="slide">
 
 				<li id="<c:out escapeXml='false' value="${slide.id}"/>"
-					class="ui-widget-content ui-corner-tr">
-					<h5 class="ui-widget-header">
-						<c:out escapeXml='false' value="${slide.description}" />
-					</h5> <img
+					class="ui-widget-content ui-corner-tr"><c:choose>
+						<c:when test="${slide.isControlSlide}">
+							<h5 class="ui-widget-header control-slide-heading">
+								<c:out escapeXml='false' value="${slide.description}" />
+							</h5>
+						</c:when>
+						<c:otherwise>
+							<h5 class="ui-widget-header">
+								<c:out escapeXml='false' value="${slide.description}" />
+							</h5>
+						</c:otherwise>
+					</c:choose> <img
 					src="uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>"
 					alt="<c:out escapeXml='false' value="${slide.description}"/>"
 					height="96" width="72"> <a
 					href="uploadedFiles/<c:out escapeXml='false' value="${slide.fileName}"/>"
 					title="View larger image" class="ui-icon ui-icon-zoomin">View
-						larger</a>
-				</li>
+						larger</a></li>
 			</c:forEach>
 		</ul>
-		
+
 		<div>
 
-		<div id="_c_ch_epfl_psytest_domain_Question_statement_id">
-			<label for="_statement_id">Statement : </label><input id="_statement_id"
-				name="statement" type="text" value="" /><br />
-		</div>
-		<br />
-		<div id="fc_ch_epfl_psytest_domain_Question_submit" class="submit">
+			<div id="_c_ch_epfl_psytest_domain_Question_statement_id">
+				<label for="_statement_id">Statement : </label><input
+					id="_statement_id" name="statement" type="text" value="" /><br />
+			</div>
+			<br />
+			<div id="fc_ch_epfl_psytest_domain_Question_submit" class="submit">
 
-			<input value="Save" type="submit" id="proceed" />
+				<input value="Save" type="submit" id="proceed" />
+			</div>
+			<br />
 		</div>
-		<br />
-	</div>
-	
+
 	</div>
 	<div id="cart" class="ui-widget-content ui-state-default">
 		<h4 class="ui-widget-header">

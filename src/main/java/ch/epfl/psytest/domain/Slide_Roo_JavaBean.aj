@@ -3,6 +3,7 @@
 
 package ch.epfl.psytest.domain;
 
+import java.lang.Boolean;
 import java.lang.String;
 
 privileged aspect Slide_Roo_JavaBean {
@@ -29,6 +30,14 @@ privileged aspect Slide_Roo_JavaBean {
     
     public void Slide.setSize(long size) {
         this.size = size;
+    }
+    
+    public Boolean Slide.getIsControlSlide() {
+        return this.isControlSlide;
+    }
+    
+    public void Slide.setIsControlSlide(Boolean isControlSlide) {
+        this.isControlSlide = isControlSlide;
     }
     
 }

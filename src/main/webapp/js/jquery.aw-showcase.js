@@ -885,7 +885,7 @@
 				// A function that runs on content change, if it exists.
 				if (typeof options.custom_function == 'function')
 				{ 	
-					options.custom_function();
+					options.custom_function(current_id, contentArray[current_id]);
 				}
 			}
 		}

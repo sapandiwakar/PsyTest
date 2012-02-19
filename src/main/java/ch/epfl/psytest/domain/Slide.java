@@ -1,7 +1,6 @@
 package ch.epfl.psytest.domain;
 
 import javax.persistence.Transient;
-
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -22,6 +21,8 @@ public class Slide {
     private String fileName;
 
     private long size;
+
+    private Boolean isControlSlide;
 
     public CommonsMultipartFile getFile() {
         return file;
