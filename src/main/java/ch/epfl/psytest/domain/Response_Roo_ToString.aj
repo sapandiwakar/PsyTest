@@ -8,15 +8,17 @@ import java.lang.String;
 privileged aspect Response_Roo_ToString {
     
     public String Response.toString() {
-        StringBuilder sb = new StringBuilder();
+      return getId().toString();
+        /*StringBuilder sb = new StringBuilder();
         sb.append("Answer: ").append(getAnswer()).append(", ");
         sb.append("ChoiceIndexOfAnswer: ").append(getChoiceIndexOfAnswer()).append(", ");
         sb.append("Experiment: ").append(getExperiment()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
+        sb.append("IsControlQuestionAnsweredCorrectly: ").append(getIsControlQuestionAnsweredCorrectly()).append(", ");
         sb.append("Question: ").append(getQuestion()).append(", ");
         sb.append("Story: ").append(getStory()).append(", ");
         sb.append("Version: ").append(getVersion());
-        return sb.toString();
+        return sb.toString();*/
     }
     
 }

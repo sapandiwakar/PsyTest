@@ -7,6 +7,7 @@ import ch.epfl.psytest.domain.Experiment;
 import ch.epfl.psytest.domain.Question;
 import ch.epfl.psytest.domain.Slide;
 import ch.epfl.psytest.domain.Story;
+import java.lang.Boolean;
 
 privileged aspect Response_Roo_JavaBean {
     
@@ -48,6 +49,14 @@ privileged aspect Response_Roo_JavaBean {
     
     public void Response.setStory(Story story) {
         this.story = story;
+    }
+    
+    public Boolean Response.getIsControlQuestionAnsweredCorrectly() {
+        return this.isControlQuestionAnsweredCorrectly;
+    }
+    
+    public void Response.setIsControlQuestionAnsweredCorrectly(Boolean isControlQuestionAnsweredCorrectly) {
+        this.isControlQuestionAnsweredCorrectly = isControlQuestionAnsweredCorrectly;
     }
     
 }

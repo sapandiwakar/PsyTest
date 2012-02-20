@@ -8,5 +8,6 @@
         <field:select field="experiment" id="c_ch_epfl_psytest_domain_Response_experiment" itemValue="id" items="${experiments}" path="/experiments" z="fQu0VxeLE7Yp5nFe4mnNjIhwaTQ="/>
         <field:input field="choiceIndexOfAnswer" id="c_ch_epfl_psytest_domain_Response_choiceIndexOfAnswer" z="t3yujq8OcZf3DjYTYoajBm0aOto="/>
         <field:select field="story" id="c_ch_epfl_psytest_domain_Response_story" itemValue="id" items="${storys}" path="/storys" z="1CkxiLt1VZRytdEcNwNl67Mfe9A="/>
+        <field:checkbox field="isControlQuestionAnsweredCorrectly" id="c_ch_epfl_psytest_domain_Response_isControlQuestionAnsweredCorrectly" z="FBUoD6Z3xwIj0WL/j3NU481KKIM="/>
     </form:update>
 </div>

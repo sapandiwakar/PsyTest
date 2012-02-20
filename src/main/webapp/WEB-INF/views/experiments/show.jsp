@@ -54,6 +54,8 @@
     var storyIds = new Array();
     var questionIds = new Array();
     var choiceIndexes = new Array();
+    var controlQuestionAnswers = new Array();
+    var lastControlQuestionAnswer = true;
 
     var temp = $('#proceed');
     $('#proceed').live('click', function() {
@@ -64,7 +66,8 @@
           experiment : <c:out escapeXml='false' value="${experiment.id}"/>,
           answer : answerIds[i],
           story : storyIds[i],
-          choiceIndexOfAnswer : choiceIndexes[i]
+          choiceIndexOfAnswer : choiceIndexes[i],
+          isControlQuestionAnsweredCorrectly : controlQuestionAnswers[i]
         }, function(data) {
           nResponsesReceived++;
           if (nResponsesReceived >= storyIds.length - 1) {
@@ -91,6 +94,8 @@
       storyIds[i] = $(this).attr('data-story-id');
       questionIds[i] = $(this).attr('data-question-id');
       choiceIndexes[i] = $(this).attr('data-choice-index');
+      controlQuestionAnswers[i] = lastControlQuestionAnswer;
+      lastControlQuestionAnswer = true;
 
       $(this).siblings('input').attr('checked', false);
       $('#' + $(this).attr('data-radio-id')).attr('checked', true);
@@ -119,9 +124,54 @@
       custom_function : function(current_id, content) {
         var temp = current_id;
         if ($(content).hasClass("control-slide")) {
+          $('body').append('<div class="clickable-correct-control"></div>');
+          $('body').append('<div class="clickable-incorrect-control"></div>');
+          var correctControlDiv = $('.clickable-correct-control');
+          var incorrectControlDiv = $('.clickable-incorrect-control');
+          var image = $(content).find('img');
+          var temp = $('.control-slide');
+          var imageWidth = $(temp).find('img').width();
+          var imageTop = $(temp).find('img').offset().top;
+          var imageLeft = $(temp).find('img').offset().left;
+          var imageHeight = $(temp).find('img').height();
+          
+          var correctControlPositionTop = imageTop;
+          var correctControlPositionLeft = $(document).width() - 350;//imageLeft+imageWidth;
+          var correctControlHeight = $(document).height()/2; //imageHeight/2;
+          var correctControlWidth = $(document).width() - correctControlPositionLeft;
+          correctControlDiv.css('position', 'absolute');
+          correctControlDiv.css('top', correctControlPositionTop);
+          correctControlDiv.css('left', correctControlPositionLeft);
+          correctControlDiv.css('height', correctControlHeight);
+          correctControlDiv.css('width', correctControlWidth);
+          correctControlDiv.css('z-index', 10000);
+          
+          var incorrectControlPositionTop = imageTop + correctControlHeight;
+          var incorrectControlPositionLeft = $(document).width() - 350; //imageLeft+imageWidth;
+          var incorrectControlHeight = $(document).height()/2; //imageHeight/2;
+          var incorrectControlWidth = $(document).width() - incorrectControlPositionLeft;
+          incorrectControlDiv.css('position', 'absolute');
+          incorrectControlDiv.css('top', incorrectControlPositionTop);
+          incorrectControlDiv.css('left', incorrectControlPositionLeft);
+          incorrectControlDiv.css('height', incorrectControlHeight);
+          incorrectControlDiv.css('width', incorrectControlWidth);
+          incorrectControlDiv.css('z-index', 10000);
+          
+          $('.clickable-correct-control').click(function() {
+            lastControlQuestionAnswer = true;
+            $('.showcase-arrow-next').click();
+          });
+		  
+          $('.clickable-incorrect-control').click(function() {
+            lastControlQuestionAnswer = false;
+            $('.showcase-arrow-next').click();
+          });
+          
           $('.showcase-arrow-next').hide();
           $('.showcase-arrow-previous').hide();
         } else {
+          $('.clickable-incorrect-control').remove();
+          $('.clickable-correct-control').remove();
           $('.showcase-arrow-next').show();
           $('.showcase-arrow-previous').show();
         }

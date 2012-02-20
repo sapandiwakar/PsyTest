@@ -27,4 +27,6 @@ public class Response {
 
     @ManyToOne
     private Story story;
+
+    private Boolean isControlQuestionAnsweredCorrectly;
 }

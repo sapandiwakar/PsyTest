@@ -9,6 +9,7 @@
             <table:column id="c_ch_epfl_psytest_domain_Response_experiment" property="experiment" z="IWLg7qqfP1eGYTtdDLsCjGeAPYA="/>
             <table:column id="c_ch_epfl_psytest_domain_Response_choiceIndexOfAnswer" property="choiceIndexOfAnswer" z="tFwNVrwpy16SAvRrW9o8TP6PTMk="/>
             <table:column id="c_ch_epfl_psytest_domain_Response_story" property="story" z="8zQVC3oPTBjW5/oeTlMjuwJ6qcY="/>
+            <table:column id="c_ch_epfl_psytest_domain_Response_isControlQuestionAnsweredCorrectly" property="isControlQuestionAnsweredCorrectly" z="W1zoePfxSmh5Zua7jiIF5l7+KDA="/>
         </table:table>
     </page:list>
 </div>
