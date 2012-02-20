@@ -145,12 +145,6 @@ div#question-choices {
 	margin: 4px;
 }
 
-.question-choice {
-	vertical-align: middle;
-	line-height: 140px;
-	height: 140px;
-}
-
 .myButton {
 	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -200,9 +194,13 @@ div#question-choices {
   }
 
 /* Checked question choice */
-img.question-choice-checked {
+.question-choice-checked {
    padding:1px;
    border:3px solid blue;
    /* background-color:#ff0; */
 }
   
+.question-choice {
+	text-align: center;
+	height: auto;
+}

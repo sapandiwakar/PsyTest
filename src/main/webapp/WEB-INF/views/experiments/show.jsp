@@ -273,28 +273,31 @@
 						<div id="question-choices">
 							<c:forEach items="${story.question.choices}" var="choice"
 								varStatus="status">
-								<input type="radio" style="display: none;"
-									name="choices-story-<c:out escapeXml='false' value="${story.id}"/>"
-									value="<c:out escapeXml='false' value="${choice.id}"/>"
-									id="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>"
-									index="<c:out escapeXml='false' value="${status.count}"/>">
-								<%-- <label
-										for="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>">
-										<c:out escapeXml='false' value="${choice.description}" />
-									</label> --%>
-								<c:if test="${not empty choice.fileName}">
-									<img class="question-choice"
+								<div class="question-choice"
 										data-radio-id="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>"
 										data-story-id="<c:out escapeXml='false' value="${story.id}"/>"
 										data-question-id="<c:out escapeXml='false' value="${story.question.id}"/>"
 										data-choice-id="<c:out escapeXml='false' value="${choice.id}"/>"
 										data-choice-index="<c:out escapeXml='false' value="${status.index}"/>"
-										src="../uploadedFiles/<c:out escapeXml='false' value="${choice.fileName}"/>"
-										title="<c:out escapeXml='false' value="${choice.description}"/>"
+										>
+								<input type="radio" style="display: none;"
+									name="choices-story-<c:out escapeXml='false' value="${story.id}"/>"
+									value="<c:out escapeXml='false' value="${choice.id}"/>"
+									id="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>"
+									index="<c:out escapeXml='false' value="${status.count}"/>">
+									<c:out escapeXml='false' value="${choice.description}" /><br/>
+								<%-- <label
+										for="radioStory<c:out escapeXml='false' value="${story.id}"/>Question<c:out escapeXml='false' value="${question.id}"/>Choice<c:out escapeXml='false' value="${choice.id}"/>">
+										<c:out escapeXml='false' value="${choice.description}" />
+									</label> --%>
+								<c:if test="${not empty choice.fileName}">
+									<img src="../uploadedFiles/<c:out escapeXml='false' value="${choice.fileName}"/>"
+									title="<c:out escapeXml='false' value="${choice.description}"/>" 
 										style="vertical-align: middle" height="140px" width="210px">
 								</c:if>
-								<br />
-								<br />
+								<br/>
+								</div>
+								<br/>
 							</c:forEach>
 						</div>
 					</div>
