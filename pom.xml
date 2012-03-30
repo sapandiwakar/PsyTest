@@ -461,6 +461,7 @@
 					<excludes>
 						<exclude>**/*_Roo_*</exclude>
 					</excludes>
+					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
 			<plugin>
